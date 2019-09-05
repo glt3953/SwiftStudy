@@ -13,6 +13,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        var index = 10
+        
+        while index < 20
+        {
+            print( "index 的值为 \(index)")
+            index = index + 1
+        }
+        
+        switch index {
+        case 100  :
+            print("index 的值为 100")
+            fallthrough //如果使用了fallthrough 语句，则会继续执行之后的 case 或 default 语句，不论条件是否满足都会执行。
+        case 10,15  :
+            print("index 的值为 10 或 15")
+            fallthrough
+        case 5  :
+            print("index 的值为 5")
+            fallthrough
+        default :
+            print("默认 case")
+        }
         
         print("闭区间运算符:")
         for index in 1...5 {
@@ -71,8 +92,80 @@ class ViewController: UIViewController {
             print("\(x) ", terminator:"")
         }
         print()
+        
+        index = 15
+        
+        repeat {
+            print( "index 的值为 \(index)")
+            index = index + 1
+        } while index < 20
+//        while index < 20 {
+//            print( "index 的值为 \(index)")
+//            index = index + 1
+//        }
+        
+        // 实例化 String 类来创建空字符串
+        let stringB = String()
+        
+        if stringB.isEmpty {
+            print( "stringB 是空的" )
+        } else {
+            print( "stringB 不是空的" )
+        }
+        
+        // stringA 可被修改
+        var stringA = "菜鸟教程："
+        stringA += "http://www.runoob.com"
+        print( stringA )
+        
+        // stringB 不能修改
+//        let stringC = String("菜鸟教程：")
+//        stringC += "http://www.runoob.com"
+//        print( stringC )
+        
+        let varA   = 20
+        let constA = 100
+        let varC:Float = 20.0
+        
+        stringA = "\(varA) 乘于 \(constA) 等于 \(varC * 100)"
+        print( stringA )
+        
+        stringA = "www.runoob.com"
+        print( "\(stringA), 长度为 \(stringA.count)" )
+        
+        for ch in "Runoob" {
+            print(ch)
+        }
+        
+        var someInts = [Int]()
+        
+        someInts.append(20)
+        someInts.append(30)
+        someInts += [40]
+        
+        let someVar = someInts[0]
+        print( "第一个元素的值 \(someVar)" )
+        print( "第二个元素的值 \(someInts[1])" )
+        print( "第三个元素的值 \(someInts[2])" )
+        
+        var someStrs = [String]()
+        someStrs.append("Apple")
+        someStrs.append("Amazon")
+        someStrs.append("Runoob")
+        someStrs += ["Google"]
+        for item in someStrs {
+            print(item)
+        }
+        for (index, item) in someStrs.enumerated() {
+            print("在 index = \(index) 位置上的值为 \(item)")
+        }
+        
+        let intsA = [Int](repeating: 2, count:2)
+        let intsB = [Int](repeating: 1, count:3)
+        let intsC = intsA + intsB
+        for item in intsC {
+            print(item)
+        }
     }
-
-
 }
 
