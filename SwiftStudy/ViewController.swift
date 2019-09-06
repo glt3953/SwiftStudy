@@ -166,6 +166,155 @@ class ViewController: UIViewController {
         for item in intsC {
             print(item)
         }
+        
+        var someDict:[Int:String] = [1:"One", 2:"Two", 3:"Three"]
+//        var oldVal = someDict.updateValue("One 新的值", forKey: 1) //updateValue(_:forKey:)方法返回旧的Optional值
+        var oldVal = someDict[1]
+        someDict[1] = "One 新的值"
+        let someString = someDict[1]
+//        var removedValue = someDict.removeValue(forKey: 2)
+//        someDict[2] = nil
+        print( "key = 1 旧的值 \(oldVal)" )
+        print( "key = 1 的值为 \(someString)" )
+//        print( "key = 2 的旧值为 \(removedValue)" )
+        print( "key = 2 的值为 \(someDict[2])" )
+        print( "key = 3 的值为 \(someDict[3])" )
+        for (key, value) in someDict {
+            print("字典 key \(key) -  字典 value \(value)")
+        }
+        for (key, value) in someDict.enumerated() {
+            print("字典 key \(key) -  字典 (key, value) 对 \(value)")
+        }
+        let dictKeys = [Int](someDict.keys)
+        let dictValues = [String](someDict.values)
+        print("输出字典的键(key)")
+        for (key) in dictKeys {
+            print("\(key)")
+        }
+        print("输出字典的值(value)")
+        for (value) in dictValues {
+            print("\(value)")
+        }
+        
+        var someDict1:[Int:String] = [1:"One", 2:"Two", 3:"Three"]
+        var someDict2:[Int:String] = [4:"Four", 5:"Five"]
+        print("someDict1 含有 \(someDict1.count) 个键值对")
+        print("someDict2 含有 \(someDict2.count) 个键值对")
+        
+        var someDict3:[Int:String] = [Int:String]()
+        print("someDict1 = \(someDict1.isEmpty)")
+        print("someDict2 = \(someDict2.isEmpty)")
+        print("someDict3 = \(someDict3.isEmpty)")
+        
+//        func runoob(site: String) -> String {
+//            return (site)
+//        }
+//        print(runoob(site: "www.runoob.com"))
+        
+        func runoob(name: String, site: String) -> String {
+            return name + site
+        }
+        print(runoob(name: "菜鸟教程：", site: "www.runoob.com"))
+        print(runoob(name: "Google：", site: "www.google.com"))
+        
+        func sitename() -> String {
+            return "菜鸟教程"
+        }
+        print(sitename())
+        
+//        //函数返回值类型可以是字符串，整型，浮点型等。元组与数组类似，不同的是，元组中的元素可以是任意类型，使用的是圆括号。
+//        func minMax(array: [Int]) -> (min: Int, max: Int) {
+//            var currentMin = array[0]
+//            var currentMax = array[0]
+//            for value in array[1..<array.count] {
+//                if value < currentMin {
+//                    currentMin = value
+//                } else if value > currentMax {
+//                    currentMax = value
+//                }
+//            }
+//            return (currentMin, currentMax)
+//        }
+//        let bounds = minMax(array: [8, -6, 2, 109, 3, 71])
+//        print("最小值为 \(bounds.min) ，最大值为 \(bounds.max)")
+        
+        func minMax(array: [Int]) -> (min: Int, max: Int)? {
+            if array.isEmpty {
+                print("数组为空")
+                return nil
+            }
+            var currentMin = array[0]
+            var currentMax = array[0]
+            for value in array[1..<array.count] {
+                if value < currentMin {
+                    currentMin = value
+                } else if value > currentMax {
+                    currentMax = value
+                }
+            }
+            return (currentMin, currentMax)
+        }
+//        if let bounds = minMax(array: [8, -6, 2, 109, 3, 71]) {
+        if let bounds = minMax(array: []) {
+            print("最小值为 \(bounds.min)，组大值为 \(bounds.max)")
+        }
+        
+        func runoob1(site: String) {
+            print("菜鸟教程官网：\(site)")
+        }
+        runoob1(site: "http://www.runoob.com")
+        
+        func pow(firstArg a: Int, secondArg b: Int) -> Int {
+            var res = a
+            for _ in 1..<b {
+                res = res * a
+            }
+            print(res)
+            return res
+        }
+        pow(firstArg:5, secondArg:3)
+        
+        //可变参数可以接受零个或多个值。函数调用时，你可以用可变参数来指定函数参数，其数量是不确定的。可变参数通过在变量类型名后面加入（...）的方式来定义。
+        func vari<N>(members: N...){
+            for i in members {
+                print(i)
+            }
+        }
+        vari(members: 4,3,5)
+        vari(members: 4.5, 3.1, 5.6)
+        vari(members: "Google", "Baidu", "Runoob")
+        
+        func swapTwoInts(_ a: inout Int, _ b: inout Int) {
+            let temporaryA = a
+            a = b
+            b = temporaryA
+        }
+        var x = 1
+        var y = 5
+        swapTwoInts(&x, &y)
+        print("x 现在的值 \(x), y 现在的值 \(y)")
+        
+        func sum(a: Int, b: Int) -> Int {
+            return a + b
+        }
+        var addition: (Int, Int) -> Int = sum
+        print("输出结果: \(addition(40, 89))")
+        
+        func another(addition: (Int, Int) -> Int, a: Int, b: Int) {
+            print("输出结果: \(addition(a, b))")
+        }
+        another(addition: sum, a: 10, b: 20)
+        
+        func calcDecrement(forDecrement total: Int) -> () -> Int {
+            var overallDecrement = 0
+            func decrementer() -> Int {
+                overallDecrement -= total
+                return overallDecrement
+            }
+            return decrementer
+        }
+        let decrem = calcDecrement(forDecrement: 30)
+        print(decrem())
     }
 }
 
