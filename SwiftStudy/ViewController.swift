@@ -15,6 +15,28 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        var a1 = UInt8.max
+        print(a1)
+        var a2 = UInt.max
+        print(a2)
+        var a3 = MemoryLayout<UInt>.size
+        print(a3)
+        var a4 = UInt64.max
+        print(a4)
+        var a5 = Int.max
+        print(a5)
+        var a6 = Int.min
+        print(a6)
+        
+        print("Hello, World!")
+
+        var str = "Hello, playground"
+        str = str + " Test"
+        print(str)
+
+        //声明3个Int类型的变量
+        var one, two, three:Int
+        
         let occ = OCClass();
         occ.ocInstanceMethod();
         OCClass.ocClassMethod();
@@ -321,6 +343,42 @@ class ViewController: UIViewController {
         }
         let decrem = calcDecrement(forDecrement: 30)
         print(decrem())
+        
+        var b3 = MemoryLayout<Float80>.size
+        print(b3)
+        var c = MemoryLayout<Double>.size
+        print(c)
+        
+        var decimal = 1.25e3
+        print(decimal)
+        var hex = 0x1p3
+        print(hex)
+        
+        var bool1 = true
+        print(bool1)
+        
+        var pen:(name:String, price:Int) = ("钢笔", 2)
+        print(pen.name, pen.price)
+        var car:(String, Int) = ("奔驰", 2000000)
+        print(car.0, car.1)
+        var (theName, thePrice) = car
+        print(theName, thePrice)
+        
+        var obj:String? = "HS"
+        if let tmp = obj {
+            print(tmp)
+        } else {
+            obj = "HS"
+            print(obj!)
+        }
+        var obj1:Int? = 1
+        var obj2:Int? = 2
+        if let tmp1 = obj1, let tmp2 = obj2, tmp1 < tmp2 {
+            print(tmp1, tmp2)
+        }
+        
+        typealias Price = Int
+        var penPrice:Price = 100
     }
 }
 
