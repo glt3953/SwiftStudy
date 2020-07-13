@@ -1,6 +1,7 @@
 //
 //  ViewController.swift
 //  SwiftStudy（Swift 教程 https://www.runoob.com/swift/swift-tutorial.html）
+//  https://developer.apple.com/swift/
 //
 //  Created by guoliting on 2019/8/27.
 //  Copyright © 2019 guoliting. All rights reserved.
@@ -13,6 +14,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let occ = OCClass();
+        occ.ocInstanceMethod();
+        OCClass.ocClassMethod();
+        
         var index = 10
         
         while index < 20
