@@ -101,7 +101,7 @@ class ViewController: UIViewController {
 //        var optionalInteger: Optional<Int>
         optionalInteger = 42
         
-        let name = "菜鸟教程"
+        var name = "菜鸟教程"
         let site = "http://www.runoob.com"
         print("\(name)的官网地址为：\(site)")
         
@@ -379,6 +379,64 @@ class ViewController: UIViewController {
         
         typealias Price = Int
         var penPrice:Price = 100
+        
+        str = String()
+        str = String("hello")
+        str = String(666)
+        str = String(6.66)
+        str = String("a")
+        str = String(false)
+        print(str)
+        str = String(describing: (1, 1.0, true))
+        str = String(format:"我是%@", "宁侠")
+        str = String(describing: Int.self)  //通过类型来构造字符串”Int“
+        print(str)
+        var c1 = "Hello"
+        var c2 = "World"
+        var c3 = c1 + " " + c2
+        print(c3)
+        var d = "Hello \(123)"
+        var d2 = "Hello \(c2)"
+        print(d2)
+        print(MemoryLayout<String>.size)
+        print(MemoryLayout<Character>.size)
+        var uni = "\u{21}"  //使用Unicode码来创建字符，Unicode码21代表的字符为！
+        print(uni)
+        var com1 = "30a"
+        var com2 = "30b"
+        if com1 < com2 {
+            print("com1 比 com2 小")
+        }
+        var string = "Hello-Swift"
+        var startIndex = string.startIndex
+        var endIndex = string.endIndex
+        var char = string[string.index(after: startIndex)]
+        print(char)
+        var char2 = string[string.index(before: string.endIndex)]
+        print(char2)
+        var subSring = string[startIndex...string.index(startIndex, offsetBy: 4)]
+        print(subSring)
+        print(subSring.uppercased())
+        var subString2 = string[string.index(endIndex, offsetBy: -5)..<endIndex]
+        subString2.removeAll()
+        print(subString2)
+        var array3 = [String](repeating: "Hello", count: 10)
+        print(array3)
+        var array4 = Array(repeating: 1, count: 10)
+        print(array4)
+        var array5 = [1,2,3] + [4,5,6]
+        print(array5)
+        let arrayLet = [5,6,7,8,9]
+        for item in arrayLet.enumerated() {
+            print(item)
+        }
+        let arrayLet2 = [(1,2), (2,3), (3,4)]
+        for index in arrayLet2.indices {
+            print(arrayLet2[index], separator:"")
+        }
+        var arraySort = [1,3,5,6,7]
+        print(arraySort.sorted(by:>))
+        print(arraySort.sorted(by:<))
     }
 }
 
