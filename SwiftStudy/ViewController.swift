@@ -437,6 +437,68 @@ class ViewController: UIViewController {
         var arraySort = [1,3,5,6,7]
         print(arraySort.sorted(by:>))
         print(arraySort.sorted(by:<))
+        var set3:Set<Int> = [1,2,3,4]
+        var set4:Set<Int> = [1,2,5,6]
+        print(set3.intersection(set4))
+        print(set3.symmetricDifference(set4))  //set3与set4的并集除去set3与set4的交集
+        print(set3.union(set4))
+        print(set3.subtracting(set4))  //set3除去set3与set4的交集
+        var set7:Set = [1,2,3]
+        var set8:Set = [1,2,3]
+        print(set7.isSuperset(of: set8))  //超集
+        print(set7.isStrictSuperset(of: set8))  //真超集
+        for item in set7.enumerated() {
+            print(item)
+        }
+        for index in set7.indices {
+            print(set7[index])
+        }
+        for item in set7.sorted(by: >) {
+            print(item)
+        }
+        var dic1 = [1:"1", 2:"2", 3:"3"]
+        dic1.updateValue("0", forKey: 1)
+        print(dic1)
+        for item in dic1.keys {
+            print(item)
+        }
+        for item in dic1.values {
+            print(item)
+        }
+        for item in dic1 {
+            print(item)
+        }
+        var stringOri2 = "swsvr!vrfe?123321!!你好?世界!"
+        var stringRes2 = String()
+        for index in stringOri2.indices {
+            if stringOri2[index] != "?" && stringOri2[index] != "!" {
+                stringRes2.append(stringOri2[index])
+            }
+        }
+        print(stringRes2)
+        var stringOri3 = "abcdefg"
+        var index3 = stringOri3.endIndex
+        print(index3)
+        print(stringOri3.startIndex)
+        var stringRes3 = String()
+        while index3 > stringOri3.startIndex {
+            index3 = stringOri3.index(before: index3)
+            stringRes3.append(stringOri3[index3])
+        }
+        print(stringRes3)
+        var stringOri5 = "abc中国abc美国abc英国~德国abc法国abc"
+        var range5 = stringOri5.range(of: "abc")
+        while range5 != nil {
+            stringOri5.replaceSubrange(range5!, with: "Hello")
+            range5 = stringOri5.range(of: "abc")
+        }
+        print(stringOri5)
+        var dicOri4 = ["a":98, "b":86, "c":93]
+        for item in dicOri4.sorted(by: {(stud1, stud2) -> Bool in
+            return stud1.value > stud2.value
+        }) {
+            print(item)
+        }
     }
 }
 
