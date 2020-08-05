@@ -499,6 +499,68 @@ class ViewController: UIViewController {
         }) {
             print(item)
         }
+        //创建范围>=0且<=10的闭区间
+        var range1 = 0...10
+        print(range1)
+        print(range1 ~= 8)
+        //创建范围>=0且<10的半开区间
+        var range2 = 0..<10
+        print(range2)
+        var tuple = (0,0)
+        switch tuple {
+        case (let a,1):
+            print(a)
+        case (let b,0) where b==0:
+            print(b)
+        case let(a,b) where a==b:
+            print(a,b)
+        case (0,1):
+            print("Sure")
+        case (_,1):  //选择性匹配
+            print("Sim")
+        case (0...3,0...3):  //元组元素的范围匹配
+            print("SIM")
+        default:
+            print("")
+        }
+        MyLabel:for indexI in 0...2 {
+            for indexJ in 0...2 {
+                if indexI == 1 {
+                    continue MyLabel
+                }
+                print("第\(indexI)\(indexJ)次循环")
+            }
+        }
+        MyLabel:for indexI in 0...2 {
+            for indexJ in 0...2 {
+                if indexI == 1 {
+                    break MyLabel
+                }
+                print("第\(indexI)\(indexJ)次循环")
+            }
+        }
+        func myFuncTwo(param:Int) {
+            guard param>0 else {
+                return
+            }
+            print("其他操作")
+        }
+        //”水仙花数“：是指一个3位数，其各位数字的立方和等于该数本身
+        for item in 100...999 {
+            var dig = item%10
+            var tens = item/10%10
+            var hundred = item/100
+            var sum = dig*dig*dig + tens*tens*tens + hundred*hundred*hundred
+            if sum == item {
+                print(item)
+            }
+        }
+    //猴子吃桃问题：猴子第一天摘下若干个桃子，当即吃了一半，还不过瘾，又多吃了一个。第二天早上将剩下的桃子吃掉一半，又多吃了一个。以后每天早上都吃了前一天剩下的一半零一个。到第10天早上想再吃时，就只剩下一个桃子了。求第一天共摘了多少个桃子。
+        var count = 1
+        for day in 1...9 {
+            count = (count+1)*2
+        }
+        print(count)
     }
 }
 
