@@ -561,6 +561,71 @@ class ViewController: UIViewController {
             count = (count+1)*2
         }
         print(count)
+        func searchData (dataID:String)->(success:Bool, data:String) {
+            let result = true
+            let data = "数据实体"
+            return (result, data)
+        }
+        if searchData(dataID: "1101").success {
+            print(searchData(dataID: "1101").data)
+        }
+        func myFunc10(param:Int...){
+            var sum = 0
+            for count in param {
+                sum += count
+            }
+            print(sum)
+        }
+        myFunc10(param: 1,2,3,4,5)
+        myFunc10(param: 12,2,3)
+        func myFunc11(param1:Int...,param2:String) {
+            var sum = 0
+            for count in param1 {
+                sum += count
+            }
+            print("\(param2):\(sum)")
+        }
+        myFunc11(param1: 1,2,3, param2: "hello")
+        //在函数内部修改参数变量的值
+        func myFunc12(param:inout Int) {
+            param += 1
+        }
+        var para = 10
+        myFunc12(param: &para)
+        print(para)
+        var addFunc:(Int,Int)->Int
+        func myFunc15() -> (Int,Int)->Int {
+            return {(param1:Int, param2:Int) in
+                return param1+param2
+            }
+        }
+        addFunc = myFunc15()
+        print(addFunc(1,2))
+        let myClosures = {(param:Int)->Int in
+            return param*param
+        }
+        print(myClosures(3))
+        func mySort(array:inout Array<Any>, sortClosure:(Int,Int)->Bool) -> Array<Any> {
+            for indexI in array.indices {
+                if indexI == array.count-1 {
+                    break
+                }
+                
+                for indexJ in 0...((array.count-1)-indexI-1) {
+                    if sortClosure(indexJ, indexJ+1) {
+                        
+                    } else {
+                        array.swapAt(indexJ, indexJ+1)
+                    }
+                }
+            }
+            return array
+        }
+        var array:Array<Any> = [1,4,3,5,7,5,4,2,7]
+//        mySort(array: &array, sortClosure: {(index:Int, nextIndex:Int) -> Bool in
+//            return (array[index] as! Int) > (array[nextIndex] as! Int)
+//        })
+        print(array)
     }
 }
 
