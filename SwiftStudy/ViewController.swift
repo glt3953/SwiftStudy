@@ -9,6 +9,17 @@
 
 import UIKit
 
+//自定义中缀运算符
+infix operator ++
+func ++(param1:Int, param2:Int)->Int {
+    return param1*param1 + param2*param2
+}
+//自定义后缀运算符
+postfix operator ++
+postfix func ++(param1:Int)->Int {
+    return param1+param1
+}
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -115,7 +126,7 @@ class ViewController: UIViewController {
         
         let theInput = readLine()
         
-        let a = 1 + 2
+        var a = 1 + 2
         for x in 0...10 {
             print("\(x) ", terminator:"")
         }
@@ -626,6 +637,137 @@ class ViewController: UIViewController {
 //            return (array[index] as! Int) > (array[nextIndex] as! Int)
 //        })
         print(array)
+        a = 00001000
+        print(a)
+        print(~a)
+        var b:UInt8 = 255
+        b = b &+ 1  //支持溢出的加操作
+        print(b)
+        b = b &- 1
+        print(b)
+        b = b &* 2  //等同于左移一位
+        print(b)
+        print(5++4)
+        print(5++)
+        enum Shape {
+            case circle(center:(Double,Double), radius:Double)
+            case rect(center:(Double,Double), width:Double, height:Double)
+            case triangle(point1:(Double,Double), point2:(Double,Double), point3:(Double,Double))
+        }
+        var circle = Shape.circle(center: (0,0), radius: 3)
+        var rect = Shape.rect(center: (1,1), width: 10, height: 15)
+        var triangle = Shape.triangle(point1: (2,2), point2: (3,3), point3: (2,5))
+        func shapeFunc(param:Shape) {
+            switch param {
+            case let .circle(center, radius):
+                print("此圆的圆心为：\(center), 半径为：\(radius)")
+            case let .rect(center, width, height):
+                print("此矩形的中心为：\(center), 宽为：\(width), 高为：\(height)")
+            case let .triangle(point1, point2, point3):
+                print("此三角形的3个顶点分别为：\(point1), \(point2), \(point3)")
+            }
+        }
+        shapeFunc(param: circle)
+        shapeFunc(param: rect)
+        shapeFunc(param: triangle)
+        class Work {
+            var name:String
+            init(name:String) {
+                self.name = name
+                print("完成了Work类实例的构造")
+            }
+        }
+        class People {
+            var age:Int
+            lazy var work:Work = Work(name: "teacher")
+            init(age:Int) {
+                self.age = age
+            }
+        }
+        let people = People(age:24)
+        print(people.work)
+        class Teacher {
+            var name:String {
+                willSet {
+                    print("将要设置名字为：\(newValue)")
+                }
+                didSet {
+                    print("旧的名字为：\(oldValue)")
+                }
+            }
+            var age:Int
+            init(name:String, age:Int) {
+                self.age = age
+                self.name = name
+            }
+        }
+        let teacher = Teacher(name:"珲少", age:24)
+        teacher.name = "Jaki"
+        class MyArray {
+            var array:Array<Array<Int>>
+            init(param:Array<Int>...) {
+                array = param
+            }
+            subscript(index1:Int, index2:Int)->Int {
+                set {
+                    array[index1][index2] = newValue
+                }
+                get {
+                    let tmp = array[index1]
+                    return tmp[index2]
+                }
+            }
+        }
+        let myArray = MyArray(param: [1,2,3], [3,4,5], [4,5,6], [6,7,8], [7,8,9])
+        print(myArray[1,2])
+        print(myArray[4,2])
+        myArray[4,2] = 0
+        print(myArray[4,2])
+        class Temp {
+            deinit {
+                print("Temp 实例被销毁")
+            }
+        }
+        var temp:Temp? = Temp()
+        //当可选类型的类实例变量被赋值为nil时，实例会被释放
+        temp = nil
+        class ClassOne {
+            deinit {
+                print("ClassOne deinit")
+            }
+        }
+        class ClassTwo {
+            var cls:ClassOne?
+            init(cls:ClassOne?) {
+                self.cls = cls
+            }
+            deinit {
+                print("ClassTwo deinit")
+            }
+        }
+        var objARC:ClassOne? = ClassOne()
+        var objARC2:ClassTwo? = ClassTwo(cls: objARC)
+        objARC = nil
+        objARC2 = nil
+        class ClassThree {
+            unowned var cls:ClassFour
+            init(cls:ClassFour) {
+                self.cls = cls
+            }
+            deinit {
+                print("ClassThree deinit")
+            }
+        }
+        class ClassFour {
+            var cls:ClassThree!
+            init() {
+                cls = ClassThree(cls: self)
+            }
+            deinit {
+                print("ClassFour deinit")
+            }
+        }
+        var obj5:ClassFour? = ClassFour()
+        obj5 = nil
     }
 }
-
