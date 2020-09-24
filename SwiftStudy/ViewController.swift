@@ -26,6 +26,33 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        let label = UILabel(frame: CGRect(x: 20, y: 44+20, width: 200, height: 30))
+        label.text = "我是一个普通的便签控件"
+        self.view.addSubview(label)
+        
+        let label2 = UILabel(frame: CGRect(x: 20, y: 44+60, width: 260, height: 30))
+        label2.text = "我是一个自定义的便签控件"
+        label2.font = UIFont.boldSystemFont(ofSize: 20)
+        label2.textColor = UIColor.red
+        label2.shadowColor = UIColor.green
+        label2.shadowOffset = CGSize(width: 2, height: 2)
+        label2.textAlignment = NSTextAlignment.center
+        self.view.addSubview(label2)
+        
+        let label3 = UILabel(frame: CGRect(x: 20, y: 44+110, width: 200, height: 150))
+        label3.text = "我是长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长文本"
+        label3.numberOfLines = 7
+        self.view.addSubview(label3)
+        
+        let label4 = UILabel(frame: CGRect(x: 20, y: 44+280, width: 200, height: 150))
+        let attri = NSMutableAttributedString(string: "我是个性化文本")
+        attri.addAttributes([NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 20), NSAttributedString.Key.foregroundColor:UIColor.red], range: NSRange(location: 0, length: 2))
+        attri.addAttributes([NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 13), NSAttributedString.Key.foregroundColor:UIColor.blue], range: NSRange(location: 3, length: 3))
+        label4.attributedText = attri
+        self.view.addSubview(label4)
+        
+        return
+        
         var a1 = UInt8.max
         print(a1)
         var a2 = UInt.max
@@ -769,5 +796,19 @@ class ViewController: UIViewController {
         }
         var obj5:ClassFour? = ClassFour()
         obj5 = nil
+        class MyClassSix {
+            var name:String = "HS"
+            lazy var closure:()->Void = {
+                //使用捕获列表对闭包中使用到的self进行无主引用的转换
+                [unowned self]()->Void in
+                print(self.name)
+            }
+            deinit {
+                print("ClassSix deinit")
+            }
+        }
+//        var obj6:MyClassSix? = MyClassSix()
+//        obj6?.closure
+//        obj6 = nil
     }
 }
