@@ -209,12 +209,41 @@ class ViewController: UIViewController, UITextFieldDelegate {
         segmentedControl.setTitle("new", forSegmentAt: 3)
         segmentedControl.setWidth(80, forSegmentAt: 0)
     }
+    
+    func sliderStudy() {
+        let slider = UISlider(frame: CGRect(x: 20, y: 100, width: 280, height: 30))
+        slider.maximumValue = 10
+        slider.minimumValue = 0
+        slider.value = 5
+        slider.minimumTrackTintColor = UIColor.red
+        slider.maximumTrackTintColor = UIColor.green
+        slider.thumbTintColor = UIColor.blue
+//        slider.setThumbImage(UIImage(named: "bird1"), for: UIControl.State.normal)
+//        slider.setMinimumTrackImage(UIImage(named: "bird2"), for: UIControl.State.normal)
+//        slider.setMaximumTrackImage(UIImage(named: "bird3"), for: UIControl.State.normal)
+        slider.isContinuous = false  //只在拖拽动作结束后再触发用户交互的事件
+        slider.addTarget(self, action: #selector(sliderChange), for: UIControl.Event.valueChanged)
+        self.view .addSubview(slider)
+    }
+    
+    @objc func sliderChange(slider:UISlider) {
+        print("slider值：\(slider.value)")
+    }
+    
+    func activityIndicatorStudy() {
+        self.view.backgroundColor = UIColor.red
+        let activity = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
+        activity.center = self.view.center
+        activity.startAnimating()
+        activity.color = UIColor.green
+        self.view .addSubview(activity)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.segmentedControlStudy()
+        self.activityIndicatorStudy()
         return
         
         var a1 = UInt8.max
