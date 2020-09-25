@@ -20,12 +20,13 @@ postfix func ++(param1:Int)->Int {
     return param1+param1
 }
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
+class ViewController: UIViewController, UITextFieldDelegate {
+    
+    @objc func touchBegin() {
+        print("用户点击了按钮")
+    }
+    
+    func labelStudy() {
         let label = UILabel(frame: CGRect(x: 20, y: 44+20, width: 200, height: 30))
         label.text = "我是一个普通的便签控件"
         self.view.addSubview(label)
@@ -50,7 +51,121 @@ class ViewController: UIViewController {
         attri.addAttributes([NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 13), NSAttributedString.Key.foregroundColor:UIColor.blue], range: NSRange(location: 3, length: 3))
         label4.attributedText = attri
         self.view.addSubview(label4)
+    }
+    
+    func buttonStudy() {
+        let buttonOne = UIButton(type: UIButton.ButtonType.custom)
+        buttonOne.frame = CGRect(x: 20, y: 44+20, width: 100, height: 30)
+        buttonOne.backgroundColor = UIColor.purple
+        buttonOne.setTitle("标题", for: UIControl.State.normal)
+        buttonOne.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        buttonOne.setImage(UIImage(named: "image"), for: UIControl.State.normal)
+        buttonOne.titleEdgeInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 20)
+        buttonOne.imageEdgeInsets = UIEdgeInsets(top: 0, left: 30, bottom: 30, right: 0)
+        buttonOne.setBackgroundImage(UIImage(named: "image"), for: UIControl.State.normal)
+        buttonOne.addTarget(self, action: #selector(touchBegin), for: UIControl.Event.touchUpInside)
+        self.view .addSubview(buttonOne)
+    }
+    
+    func imageViewStudy() {
+        let image = UIImage(named: "IMG_6521")
+        let imageView = UIImageView(image: image)
+        imageView.frame = CGRect(x: 30, y: 44+30, width: 300, height: 200)
+        self.view .addSubview(imageView)
+        let size = image?.size
+        let image2 = UIImage(contentsOfFile: "filePath")
+        let image3 = UIImage(data: Data())
         
+        //创建一个数组 用于存放动画图片
+        var imageArry = Array<UIImage>()
+        //进行图片的循环创建
+        for index in 1...8{
+            //使用格式化的字符串进行创建
+            let birdImage = UIImage(named: "bird\(index)")
+            //将创建的图片添加进数组中
+            imageArry.append(birdImage!)
+        }
+        //创建UIImageView
+        let birdImageView = UIImageView(frame: CGRect(x: 30, y: 44+250, width: 200, height: 100))
+        //设置动画数组
+        birdImageView.animationImages = imageArry
+        //设置动画播放时长
+        birdImageView.animationDuration = 0.5
+        //设置动画播放次数
+        birdImageView.animationRepeatCount = 0
+        self.view.addSubview(birdImageView)
+        //开始播放动画
+        birdImageView.startAnimating()
+    }
+    
+    func textFieldStudy() {
+        let textField = UITextField(frame: CGRect(x: 20, y: 44+30, width: 200, height: 30))
+        textField.borderStyle = UITextField.BorderStyle.roundedRect
+        textField.textColor = UIColor.red
+        textField.textAlignment = NSTextAlignment.center
+        textField.placeholder = "请输入11位数字"
+        self.view .addSubview(textField)
+        
+        //创建左视图
+        let imageView1 = UIImageView(image: UIImage(named: "bird1"))
+        imageView1.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        //创建右视图
+        let imageView2 = UIImageView(image: UIImage(named: "bird1"))
+        imageView2.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        textField.leftView = imageView1
+        textField.rightView = imageView2
+        textField.leftViewMode = UITextField.ViewMode.always
+        textField.rightViewMode = UITextField.ViewMode.always
+        
+        textField.delegate = self
+        textField.clearButtonMode = UITextField.ViewMode.always
+    }
+    
+    //这个方法在输入框即将进入编辑状态时被调用
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
+    //这个方法在输入框已经开始编辑时被调用
+    func textFieldDidBeginEditing(_ textField: UITextField){
+        
+    }
+    //这个方法在输入框即将结束编辑时被调用
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool{
+        return true
+    }
+    //这个方法在输入框已经结束编辑时被调用
+    func textFieldDidEndEditing(_ textField: UITextField){
+        
+    }
+    //这个方法在输入框中文本发生变化时被调用
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
+        //如果输入框中的文字已经等于11位 则不允许再输入
+        if (textField.text?.count)! >= 11 {
+            return false
+        }
+        //只有0-9之间的数字可以输入
+        if string.first!>="0" && string.first!<="9" {
+            return true
+        }else{
+            return false
+        }
+        
+    }
+    //这个方法用户点击输入框中清除按钮会被调用
+    func textFieldShouldClear(_ textField: UITextField) -> Bool{
+        return true
+    }
+    //这个方法用户点击键盘上Return按钮会被调用
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        textField.resignFirstResponder()
+        return true
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
+        self.textFieldStudy()
         return
         
         var a1 = UInt8.max
