@@ -160,12 +160,61 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    func switchStudy() {
+        let swi = UISwitch()
+        swi.center = CGPoint(x: 100, y: 100)
+        swi.onTintColor = UIColor.green
+        swi.tintColor = UIColor.red
+        swi.thumbTintColor = UIColor.purple
+        swi.isOn = true
+        swi.addTarget(self, action: #selector(switchChange), for: UIControl.Event.valueChanged)
+        self.view .addSubview(swi)
+    }
+    
+    @objc func switchChange(swi:UISwitch) {
+        print("开关状态：\(swi.isOn)")
+    }
+    
+    func pageControlStudy() {
+        let pageControl = UIPageControl(frame: CGRect(x: 20, y: 100, width: 280, height: 30))
+        pageControl.numberOfPages = 10
+        pageControl.backgroundColor = UIColor.red
+        pageControl.pageIndicatorTintColor = UIColor.green
+        pageControl.currentPageIndicatorTintColor = UIColor.blue
+        pageControl.currentPage = 3
+        pageControl.addTarget(self, action: #selector(pageControlChange), for: UIControl.Event.valueChanged)
+        self.view .addSubview(pageControl)
+    }
+    
+    @objc func pageControlChange(pageControl:UIPageControl) {
+        print("当前所在页码：\(pageControl.currentPage)")
+    }
+    
+    func segmentedControlStudy() {
+        let segmentedControl = UISegmentedControl(items: ["按钮1", "按钮2", "按钮3", "按钮4"])
+        segmentedControl.frame = CGRect(x: 100, y: 100, width: 200, height: 30)
+        segmentedControl.tintColor = UIColor.blue
+        segmentedControl.addTarget(self, action: #selector(segmentedControlSelect), for: UIControl.Event.valueChanged)
+        segmentedControl.apportionsSegmentWidthsByContent = true
+        self.view .addSubview(segmentedControl)
+    }
+    
+    @objc func segmentedControlSelect(segmentedControl:UISegmentedControl) {
+        segmentedControl.insertSegment(withTitle: "新按钮", at: 0, animated: true)
+        segmentedControl.insertSegment(with: UIImage(named: "bird1")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), at: 4, animated: true)
+        print("选择了\(segmentedControl.selectedSegmentIndex)")
+        segmentedControl.removeSegment(at: 1, animated: true)
+        segmentedControl.setImage(UIImage(named: "bird1")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), forSegmentAt: 2)
+        segmentedControl.setTitle("new", forSegmentAt: 3)
+        segmentedControl.setWidth(80, forSegmentAt: 0)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.textFieldStudy()
+        self.segmentedControlStudy()
         return
         
         var a1 = UInt8.max
