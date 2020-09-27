@@ -20,7 +20,7 @@ postfix func ++(param1:Int)->Int {
     return param1+param1
 }
 
-class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UISearchBarDelegate {
     
     @objc func touchBegin() {
         print("用户点击了按钮")
@@ -315,12 +315,49 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 20
     }
+    
+    func datePickerStudy() {
+        let datePicker = UIDatePicker(frame: CGRect(x: 20, y: 100, width: 280, height: 200))
+        datePicker.datePickerMode = UIDatePicker.Mode.countDownTimer
+        datePicker.addTarget(self, action: #selector(datePickerSelect), for: UIControl.Event.valueChanged)
+        self.view.addSubview(datePicker)
+    }
+    
+    @objc func datePickerSelect(datePicker:UIDatePicker) {
+        let date = datePicker.date
+        let time = datePicker.countDownDuration
+        print(date, time)
+    }
+    
+    func searchBarStudy() {
+        let searchBar = UISearchBar(frame: CGRect(x: 20, y: 100, width: 280, height: 150))
+        searchBar.searchBarStyle = UISearchBar.Style.minimal
+        searchBar.barTintColor = UIColor.red
+        searchBar.placeholder = "请输入要搜索的文字"
+//        searchBar.prompt = "搜索"
+        searchBar.showsCancelButton = true
+        searchBar.showsBookmarkButton = true
+        searchBar.showsSearchResultsButton = true
+        searchBar.showsScopeBar = true
+        searchBar.scopeButtonTitles = ["女鞋", "男鞋", "女装", "男装", "童装"]
+        searchBar.selectedScopeButtonIndex = 0
+        searchBar.delegate = self
+        self.view.addSubview(searchBar)
+    }
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        return true
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.pickerViewStudy()
+        self.searchBarStudy()
         return
         
         var a1 = UInt8.max
