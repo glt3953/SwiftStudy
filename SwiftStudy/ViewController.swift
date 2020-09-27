@@ -20,7 +20,7 @@ postfix func ++(param1:Int)->Int {
     return param1+param1
 }
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @objc func touchBegin() {
         print("用户点击了按钮")
@@ -64,7 +64,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         buttonOne.imageEdgeInsets = UIEdgeInsets(top: 0, left: 30, bottom: 30, right: 0)
         buttonOne.setBackgroundImage(UIImage(named: "image"), for: UIControl.State.normal)
         buttonOne.addTarget(self, action: #selector(touchBegin), for: UIControl.Event.touchUpInside)
-        self.view .addSubview(buttonOne)
+        self.view.addSubview(buttonOne)
     }
     
     func imageViewStudy() {
@@ -104,7 +104,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.textColor = UIColor.red
         textField.textAlignment = NSTextAlignment.center
         textField.placeholder = "请输入11位数字"
-        self.view .addSubview(textField)
+        self.view.addSubview(textField)
         
         //创建左视图
         let imageView1 = UIImageView(image: UIImage(named: "bird1"))
@@ -169,7 +169,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         swi.thumbTintColor = UIColor.purple
         swi.isOn = true
         swi.addTarget(self, action: #selector(switchChange), for: UIControl.Event.valueChanged)
-        self.view .addSubview(swi)
+        self.view.addSubview(swi)
     }
     
     @objc func switchChange(swi:UISwitch) {
@@ -184,7 +184,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         pageControl.currentPageIndicatorTintColor = UIColor.blue
         pageControl.currentPage = 3
         pageControl.addTarget(self, action: #selector(pageControlChange), for: UIControl.Event.valueChanged)
-        self.view .addSubview(pageControl)
+        self.view.addSubview(pageControl)
     }
     
     @objc func pageControlChange(pageControl:UIPageControl) {
@@ -197,7 +197,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         segmentedControl.tintColor = UIColor.blue
         segmentedControl.addTarget(self, action: #selector(segmentedControlSelect), for: UIControl.Event.valueChanged)
         segmentedControl.apportionsSegmentWidthsByContent = true
-        self.view .addSubview(segmentedControl)
+        self.view.addSubview(segmentedControl)
     }
     
     @objc func segmentedControlSelect(segmentedControl:UISegmentedControl) {
@@ -223,7 +223,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 //        slider.setMaximumTrackImage(UIImage(named: "bird3"), for: UIControl.State.normal)
         slider.isContinuous = false  //只在拖拽动作结束后再触发用户交互的事件
         slider.addTarget(self, action: #selector(sliderChange), for: UIControl.Event.valueChanged)
-        self.view .addSubview(slider)
+        self.view.addSubview(slider)
     }
     
     @objc func sliderChange(slider:UISlider) {
@@ -236,14 +236,91 @@ class ViewController: UIViewController, UITextFieldDelegate {
         activity.center = self.view.center
         activity.startAnimating()
         activity.color = UIColor.green
-        self.view .addSubview(activity)
+        self.view.addSubview(activity)
+    }
+    
+    func progressViewStudy() {
+        let progressView = UIProgressView(progressViewStyle: UIProgressView.Style.default)
+        progressView.frame = CGRect(x: 20, y: 100, width: 280, height: 10)
+        progressView.progress = 0.3
+        progressView.progressTintColor = UIColor.green
+//        progressView.progressImage = UIImage(named: "bird1")
+        progressView.trackTintColor = UIColor.red
+        self.view.addSubview(progressView)
+    }
+    
+    func stepperStudy() {
+        let stepper = UIStepper(frame: CGRect(x: 100, y: 100, width: 0, height: 0))
+        stepper.tintColor = UIColor.red
+        stepper.minimumValue = 0
+        stepper.maximumValue = 10
+        stepper.stepValue = 1
+        stepper.isContinuous = false
+        stepper.wraps = true
+        stepper.addTarget(self, action: #selector(stepperClick), for: UIControl.Event.valueChanged)
+        self.view.addSubview(stepper)
+    }
+    
+    @objc func stepperClick(stepper:UIStepper) {
+        print("步进控制器的值：\(stepper.value)")
+    }
+    
+    func pickerViewStudy() {
+        let pickerView = UIPickerView(frame: CGRect(x: 20, y: 100, width: 280, height: 200))
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        self.view.addSubview(pickerView)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 8
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "第\(component+1)组第\(row)行"
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let attri = NSMutableAttributedString(string: "第\(component+1)组第\(row)行")
+        attri.addAttributes([NSAttributedString.Key.foregroundColor:UIColor.red], range: NSRange(location: 0, length: attri.length))
+        
+        return attri
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let rowImage = UIImage(named: "bird\(row+1)")
+        let view = UIImageView(image: rowImage)
+//        view.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: rowImage!.size)
+        view.frame = CGRect(x: 0, y: 0, width: 110, height: 30)
+        
+        return view
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print("用户选择了\(component)组\(row)行")
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        if component == 0 {
+            return 180
+        } else {
+            return 100
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 20
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.activityIndicatorStudy()
+        self.pickerViewStudy()
         return
         
         var a1 = UInt8.max
