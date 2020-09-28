@@ -9,7 +9,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ViewControllerTwoProtocol {
     override func loadView() {
         super.loadView()
     }
@@ -26,13 +26,27 @@ class ViewController: UIViewController {
 //        buttonOne.setBackgroundImage(UIImage(named: "bird1"), for: UIControl.State.normal)
         buttonOne.addTarget(self, action: #selector(buttonClick), for: UIControl.Event.touchUpInside)
         self.view.addSubview(buttonOne)
+        
+//        let label = UILabel(frame: CGRect(x: 20, y: 200, width: 280, height: 30))
+//        self.view.addSubview(label)
     }
     
     @objc func buttonClick(_ sender: AnyObject) {
-        let viewController = ViewControllerTwo()
-        viewController.data = "这是从第一个界面传递进来的数据"
+        let viewController = ViewControllerTwo(data: "这是从第一个界面传递进来的数据")
+//        viewController.data = "这是从第一个界面传递进来的数据"
+//        viewController.delegate = self
+//        viewController.closure = {(data:String) in
+//            let label = UILabel(frame: CGRect(x: 20, y: 200, width: 280, height: 30))
+//            label.text = data
+//        }
         self.present(viewController, animated: true, completion: nil)
         print("用户点击了按钮")
+    }
+    
+    func sentedData(data: String) {
+        let label = UILabel(frame: CGRect(x: 20, y: 200, width: 280, height: 30))
+        label.text = data
+        self.view.addSubview(label)
     }
     
     override func viewWillLayoutSubviews() {

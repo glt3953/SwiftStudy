@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol ViewControllerTwoProtocol {
+    func sentedData(data: String)
+}
+
 class ViewControllerTwo: UIViewController {
     var data:String?
+//    var delegate:ViewControllerTwoProtocol
+//    var closure:((String)->Void)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +37,18 @@ class ViewControllerTwo: UIViewController {
         self.view.addSubview(label)
     }
     
+    init(data:String) {
+        self.data = data
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     @objc func buttonClick(_ sender: AnyObject) {
+//        delegate.sentedData(data: "第2个界面传递的值")
+//        self.closure("第2个界面通过闭包传递的值")
         self.dismiss(animated: true, completion: nil)
         print("用户点击了按钮")
     }
