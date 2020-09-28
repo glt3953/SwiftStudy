@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0A2AB89D245583AD0022133A /* SwiftClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2AB89C245583AD0022133A /* SwiftClass.swift */; };
 		0A2AB8A1245583D50022133A /* OCClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2AB8A0245583D50022133A /* OCClass.m */; };
+		0AD7A95D25208C1700A1301A /* UIStudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD7A95C25208C1700A1301A /* UIStudyViewController.swift */; };
+		0AD7A95F2520931500A1301A /* ViewControllerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD7A95E2520931500A1301A /* ViewControllerTwo.swift */; };
 		0AE7D2512315539100DEB0F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE7D2502315539100DEB0F8 /* AppDelegate.swift */; };
 		0AE7D2532315539100DEB0F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE7D2522315539100DEB0F8 /* ViewController.swift */; };
 		0AE7D2562315539100DEB0F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE7D2542315539100DEB0F8 /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 		0A2AB89E245583D50022133A /* SwiftStudy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftStudy-Bridging-Header.h"; sourceTree = "<group>"; };
 		0A2AB89F245583D50022133A /* OCClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCClass.h; sourceTree = "<group>"; };
 		0A2AB8A0245583D50022133A /* OCClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCClass.m; sourceTree = "<group>"; };
+		0AD7A95C25208C1700A1301A /* UIStudyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStudyViewController.swift; sourceTree = "<group>"; };
+		0AD7A95E2520931500A1301A /* ViewControllerTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTwo.swift; sourceTree = "<group>"; };
 		0AE7D24D2315539100DEB0F8 /* SwiftStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE7D2502315539100DEB0F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AE7D2522315539100DEB0F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,8 +64,10 @@
 		0AE7D24F2315539100DEB0F8 /* SwiftStudy */ = {
 			isa = PBXGroup;
 			children = (
+				0AD7A95C25208C1700A1301A /* UIStudyViewController.swift */,
 				0AE7D2502315539100DEB0F8 /* AppDelegate.swift */,
 				0AE7D2522315539100DEB0F8 /* ViewController.swift */,
+				0AD7A95E2520931500A1301A /* ViewControllerTwo.swift */,
 				0AE7D2542315539100DEB0F8 /* Main.storyboard */,
 				0AE7D2572315539300DEB0F8 /* Assets.xcassets */,
 				0AE7D2592315539300DEB0F8 /* LaunchScreen.storyboard */,
@@ -148,8 +154,10 @@
 			files = (
 				0A2AB8A1245583D50022133A /* OCClass.m in Sources */,
 				0AE7D2532315539100DEB0F8 /* ViewController.swift in Sources */,
+				0AD7A95D25208C1700A1301A /* UIStudyViewController.swift in Sources */,
 				0AE7D2512315539100DEB0F8 /* AppDelegate.swift in Sources */,
 				0A2AB89D245583AD0022133A /* SwiftClass.swift in Sources */,
+				0AD7A95F2520931500A1301A /* ViewControllerTwo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
