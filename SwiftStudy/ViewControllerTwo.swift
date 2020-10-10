@@ -22,9 +22,11 @@ class ViewControllerTwo: UIViewController {
 
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.red
+        self.view.backgroundColor = UIColor.white
+        self.title = "第1个视图控制器"
         
         let buttonOne = UIButton(type: UIButton.ButtonType.custom)
-        buttonOne.frame = CGRect(x: 20, y: 44+20, width: 100, height: 30)
+        buttonOne.frame = CGRect(x: 20, y: 44+60, width: 100, height: 30)
         buttonOne.backgroundColor = UIColor.purple
         buttonOne.setTitle("返回", for: UIControl.State.normal)
         buttonOne.setTitleColor(UIColor.white, for: UIControl.State.normal)

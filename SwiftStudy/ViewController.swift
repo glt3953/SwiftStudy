@@ -18,8 +18,12 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        let barItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClick))
+        self.navigationItem.leftBarButtonItem = barItem
+        
         let buttonOne = UIButton(type: UIButton.ButtonType.custom)
-        buttonOne.frame = CGRect(x: 20, y: 44+20, width: 100, height: 30)
+        buttonOne.frame = CGRect(x: 20, y: 44+60, width: 100, height: 30)
         buttonOne.backgroundColor = UIColor.purple
         buttonOne.setTitle("跳转", for: UIControl.State.normal)
         buttonOne.setTitleColor(UIColor.white, for: UIControl.State.normal)
@@ -39,8 +43,13 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
 //            let label = UILabel(frame: CGRect(x: 20, y: 200, width: 280, height: 30))
 //            label.text = data
 //        }
-        self.present(viewController, animated: true, completion: nil)
+//        self.present(viewController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(viewController, animated: true)
         print("用户点击了按钮")
+    }
+    
+    @objc func doneClick(_ sender: AnyObject) {
+        print("用户点击了Done按钮")
     }
     
     func sentedData(data: String) {
