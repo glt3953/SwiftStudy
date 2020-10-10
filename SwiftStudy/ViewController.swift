@@ -22,6 +22,11 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
         let barItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClick))
         self.navigationItem.leftBarButtonItem = barItem
         
+        self.tabBarItem.title = "首页"
+//        self.tabBarItem.image = UIImage(named: "bird1")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+//        self.tabBarItem.selectedImage = UIImage(named: "bird2")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        self.view.backgroundColor = UIColor.red
+        
         let buttonOne = UIButton(type: UIButton.ButtonType.custom)
         buttonOne.frame = CGRect(x: 20, y: 44+60, width: 100, height: 30)
         buttonOne.backgroundColor = UIColor.purple
@@ -36,8 +41,9 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
     }
     
     @objc func buttonClick(_ sender: AnyObject) {
-        let viewController = ViewControllerTwo(data: "这是从第一个界面传递进来的数据")
-//        viewController.data = "这是从第一个界面传递进来的数据"
+//        let viewController = ViewControllerTwo(data: "这是从第一个界面传递进来的数据")
+        let viewController = ViewControllerTwo()
+        viewController.data = "这是从第一个界面传递进来的数据"
 //        viewController.delegate = self
 //        viewController.closure = {(data:String) in
 //            let label = UILabel(frame: CGRect(x: 20, y: 200, width: 280, height: 30))

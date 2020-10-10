@@ -21,9 +21,11 @@ class ViewControllerTwo: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor.red
-        self.view.backgroundColor = UIColor.white
-        self.title = "第1个视图控制器"
+        self.tabBarItem.title = "推荐"
+        let item = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.favorites, tag: 1)
+        self.tabBarItem = item
+        self.view.backgroundColor = UIColor.green
+//        self.title = "第1个视图控制器"
         
         let buttonOne = UIButton(type: UIButton.ButtonType.custom)
         buttonOne.frame = CGRect(x: 20, y: 44+60, width: 100, height: 30)
@@ -39,14 +41,14 @@ class ViewControllerTwo: UIViewController {
         self.view.addSubview(label)
     }
     
-    init(data:String) {
-        self.data = data
-        super.init(nibName: nil, bundle: nil)
-    }
+//    init(data:String) {
+//        self.data = data
+//        super.init(nibName: nil, bundle: nil)
+//    }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     @objc func buttonClick(_ sender: AnyObject) {
 //        delegate.sentedData(data: "第2个界面传递的值")
