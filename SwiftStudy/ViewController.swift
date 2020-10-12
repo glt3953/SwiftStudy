@@ -36,11 +36,32 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
         buttonOne.addTarget(self, action: #selector(buttonClick), for: UIControl.Event.touchUpInside)
         self.view.addSubview(buttonOne)
         
+        let buttonAlert = UIButton(type: UIButton.ButtonType.custom)
+        buttonAlert.frame = CGRect(x: 20, y: 44+100, width: 100, height: 30)
+        buttonAlert.backgroundColor = UIColor.purple
+        buttonAlert.setTitle("警告框弹窗", for: UIControl.State.normal)
+        buttonAlert.setTitleColor(UIColor.white, for: UIControl.State.normal)
+//        buttonOne.setBackgroundImage(UIImage(named: "bird1"), for: UIControl.State.normal)
+        buttonAlert.addTarget(self, action: #selector(buttonAlertClick), for: UIControl.Event.touchUpInside)
+        self.view.addSubview(buttonAlert)
+        
+        let buttonSheet = UIButton(type: UIButton.ButtonType.custom)
+        buttonSheet.frame = CGRect(x: 20, y: 44+140, width: 100, height: 30)
+        buttonSheet.backgroundColor = UIColor.purple
+        buttonSheet.setTitle("抽屉弹窗", for: UIControl.State.normal)
+        buttonSheet.setTitleColor(UIColor.white, for: UIControl.State.normal)
+//        buttonOne.setBackgroundImage(UIImage(named: "bird1"), for: UIControl.State.normal)
+        buttonSheet.addTarget(self, action: #selector(buttonSheetClick), for: UIControl.Event.touchUpInside)
+        self.view.addSubview(buttonSheet)
+        
 //        let label = UILabel(frame: CGRect(x: 20, y: 200, width: 280, height: 30))
 //        self.view.addSubview(label)
     }
     
     @objc func buttonClick(_ sender: AnyObject) {
+        let action = UIAlertAction(title: "按钮一", style: UIAlertAction.Style.default) { (action) in
+            print("用户点击了按钮一")
+        }
 //        let viewController = ViewControllerTwo(data: "这是从第一个界面传递进来的数据")
         let viewController = ViewControllerTwo()
         viewController.data = "这是从第一个界面传递进来的数据"
@@ -52,6 +73,39 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
 //        self.present(viewController, animated: true, completion: nil)
         self.navigationController?.pushViewController(viewController, animated: true)
         print("用户点击了按钮")
+    }
+    
+    @objc func buttonAlertClick(_ sender: AnyObject) {
+        let alertController = UIAlertController(title: "我是警告框弹窗", message: "这里填写内容", preferredStyle: UIAlertController.Style.alert)
+//        let alertAction1 = UIAlertAction(title: "确定", style: UIAlertAction.Style.default, handler: nil)
+//        let alertAction2 = UIAlertAction(title: "删除", style: UIAlertAction.Style.destructive, handler: nil)
+//        let alertAction3 = UIAlertAction(title: "取消", style: UIAlertAction.Style.cancel, handler: nil)
+        let alertAction1 = UIAlertAction(title: "登录", style: UIAlertAction.Style.default) {
+            (action) in print(alertController.textFields?.first?.text ?? "未输入文字")
+        }
+        let alertAction2 = UIAlertAction(title: "取消", style: UIAlertAction.Style.cancel, handler: nil)
+        alertController.addAction(alertAction1)
+        alertController.addAction(alertAction2)
+//        alertController.addAction(alertAction3)
+        alertController.addTextField { (textField) in
+            textField.placeholder = "请输入用户名"
+        }
+        alertController.addTextField { (textField) in
+            textField.placeholder = "请输入密码"
+            textField.isSecureTextEntry = true
+        }
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc func buttonSheetClick(_ sender: AnyObject) {
+        let alertController = UIAlertController(title: "我是抽屉弹窗", message: "这里填写内容", preferredStyle: UIAlertController.Style.actionSheet)
+        let alertAction1 = UIAlertAction(title: "确定", style: UIAlertAction.Style.default) {
+            (action) in print(alertController.textFields?.first?.text ?? "未输入文字")
+        }
+        let alertAction2 = UIAlertAction(title: "取消", style: UIAlertAction.Style.cancel, handler: nil)
+        alertController.addAction(alertAction1)
+        alertController.addAction(alertAction2)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @objc func doneClick(_ sender: AnyObject) {
