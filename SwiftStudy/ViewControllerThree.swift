@@ -41,9 +41,10 @@ class ViewControllerThree: UIViewController, UIWebViewDelegate, WKScriptMessageH
         wkView = WKWebView(frame: self.view.frame, configuration: configuration)
         self.view.addSubview(wkView!)
         
-        let url = URL(string: "https://www.baidu.com")
-        let request = URLRequest(url: url!)
-        wkView!.load(request)
+//        let url = URL(string: "https://www.baidu.com")
+//        let request = URLRequest(url: url!)
+        wkView?.loadHTMLString("<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=330 height=86 src=\"//music.163.com/outchain/player?type=2&id=1392990601&auto=1&height=66\"></iframe>", baseURL: URL(string: "https://music.163.com"))
+//        wkView!.load(request)
         
         progressView = UIProgressView(frame: CGRect(x: 0, y: 90, width: self.view.frame.size.width, height: 10))
         progressView?.progressTintColor = UIColor.green
