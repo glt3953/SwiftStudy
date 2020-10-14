@@ -16,7 +16,6 @@
 		0ABC232E2531D3B5003B7357 /* ViewControllerSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC232D2531D3B5003B7357 /* ViewControllerSix.swift */; };
 		0ABC23302531D3C4003B7357 /* ViewControllerSeven.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC232F2531D3C4003B7357 /* ViewControllerSeven.swift */; };
 		0ABC23322531D3DA003B7357 /* ViewControllerEight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC23312531D3DA003B7357 /* ViewControllerEight.swift */; };
-		0AD7A95D25208C1700A1301A /* UIStudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD7A95C25208C1700A1301A /* UIStudyViewController.swift */; };
 		0AD7A95F2520931500A1301A /* ViewControllerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD7A95E2520931500A1301A /* ViewControllerTwo.swift */; };
 		0AE7D2512315539100DEB0F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE7D2502315539100DEB0F8 /* AppDelegate.swift */; };
 		0AE7D2532315539100DEB0F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE7D2522315539100DEB0F8 /* ViewController.swift */; };
@@ -37,7 +36,6 @@
 		0ABC232D2531D3B5003B7357 /* ViewControllerSix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSix.swift; sourceTree = "<group>"; };
 		0ABC232F2531D3C4003B7357 /* ViewControllerSeven.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSeven.swift; sourceTree = "<group>"; };
 		0ABC23312531D3DA003B7357 /* ViewControllerEight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerEight.swift; sourceTree = "<group>"; };
-		0AD7A95C25208C1700A1301A /* UIStudyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStudyViewController.swift; sourceTree = "<group>"; };
 		0AD7A95E2520931500A1301A /* ViewControllerTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTwo.swift; sourceTree = "<group>"; };
 		0AE7D24D2315539100DEB0F8 /* SwiftStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE7D2502315539100DEB0F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +76,6 @@
 		0AE7D24F2315539100DEB0F8 /* SwiftStudy */ = {
 			isa = PBXGroup;
 			children = (
-				0AD7A95C25208C1700A1301A /* UIStudyViewController.swift */,
 				0AE7D2502315539100DEB0F8 /* AppDelegate.swift */,
 				0AE7D2522315539100DEB0F8 /* ViewController.swift */,
 				0AD7A95E2520931500A1301A /* ViewControllerTwo.swift */,
@@ -179,7 +176,6 @@
 				0ABC232625316876003B7357 /* TableViewController.swift in Sources */,
 				0AE7D2532315539100DEB0F8 /* ViewController.swift in Sources */,
 				0ABC23282531B6D2003B7357 /* ViewControllerThree.swift in Sources */,
-				0AD7A95D25208C1700A1301A /* UIStudyViewController.swift in Sources */,
 				0ABC232A2531B6E2003B7357 /* ViewControllerFour.swift in Sources */,
 				0AE7D2512315539100DEB0F8 /* AppDelegate.swift in Sources */,
 				0A2AB89D245583AD0022133A /* SwiftClass.swift in Sources */,
@@ -333,6 +329,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CCQP63X7K4;
 				INFOPLIST_FILE = SwiftStudy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -354,6 +351,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CCQP63X7K4;
 				INFOPLIST_FILE = SwiftStudy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -12,8 +12,9 @@ protocol ViewControllerTwoProtocol {
     func sentedData(data: String)
 }
 
-class ViewControllerTwo: UIViewController {
+class ViewControllerTwo: UIViewController, UIScrollViewDelegate {
     var data:String?
+    var imageView:UIImageView?
 //    var delegate:ViewControllerTwoProtocol
 //    var closure:((String)->Void)
     
@@ -26,6 +27,29 @@ class ViewControllerTwo: UIViewController {
         self.tabBarItem = item
         self.view.backgroundColor = UIColor.green
 //        self.title = "第1个视图控制器"
+        
+        let scrollView = UIScrollView(frame: self.view.frame)
+        scrollView.delegate = self
+        self.view.addSubview(scrollView)
+        let subView1 = UIView(frame: self.view.frame)
+        subView1.backgroundColor = UIColor.red
+        let subView2 = UIView(frame: CGRect(x: self.view.frame.size.width, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
+        subView2.backgroundColor = UIColor.blue
+        scrollView.addSubview(subView1)
+        scrollView.addSubview(subView2)
+//        scrollView.contentSize = CGSize(width: self.view.frame.size.width*2, height: self.view.frame.size.height)
+        scrollView.alwaysBounceVertical = true
+        scrollView.alwaysBounceHorizontal = true
+        scrollView.showsVerticalScrollIndicator = true
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.isPagingEnabled = true
+        
+        imageView = UIImageView(image: UIImage(named: "IMG_6521"))
+        imageView?.frame = self.view.frame
+        scrollView.addSubview(imageView!)
+        scrollView.contentSize = self.view.frame.size
+        scrollView.minimumZoomScale = 0.5
+        scrollView.maximumZoomScale = 2
         
         let buttonOne = UIButton(type: UIButton.ButtonType.custom)
         buttonOne.frame = CGRect(x: 20, y: 44+60, width: 100, height: 30)
@@ -55,6 +79,10 @@ class ViewControllerTwo: UIViewController {
 //        self.closure("第2个界面通过闭包传递的值")
         self.dismiss(animated: true, completion: nil)
         print("用户点击了按钮")
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageView!
     }
     /*
     // MARK: - Navigation
