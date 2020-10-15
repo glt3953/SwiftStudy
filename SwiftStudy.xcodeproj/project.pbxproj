@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0A2AB89D245583AD0022133A /* SwiftClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2AB89C245583AD0022133A /* SwiftClass.swift */; };
 		0A2AB8A1245583D50022133A /* OCClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2AB8A0245583D50022133A /* OCClass.m */; };
+		0A52BC492537EE8100EADE0D /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A52BC462537EE8000EADE0D /* ProductTableViewCell.swift */; };
+		0A52BC4A2537EE8100EADE0D /* ProductTableViewTwoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A52BC472537EE8000EADE0D /* ProductTableViewTwoCell.swift */; };
+		0A52BC4B2537EE8100EADE0D /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A52BC482537EE8100EADE0D /* ProductTableViewCell.xib */; };
 		0ABC232625316876003B7357 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC232525316876003B7357 /* TableViewController.swift */; };
 		0ABC23282531B6D2003B7357 /* ViewControllerThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC23272531B6D2003B7357 /* ViewControllerThree.swift */; };
 		0ABC232A2531B6E2003B7357 /* ViewControllerFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC23292531B6E2003B7357 /* ViewControllerFour.swift */; };
@@ -16,6 +19,7 @@
 		0ABC232E2531D3B5003B7357 /* ViewControllerSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC232D2531D3B5003B7357 /* ViewControllerSix.swift */; };
 		0ABC23302531D3C4003B7357 /* ViewControllerSeven.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC232F2531D3C4003B7357 /* ViewControllerSeven.swift */; };
 		0ABC23322531D3DA003B7357 /* ViewControllerEight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC23312531D3DA003B7357 /* ViewControllerEight.swift */; };
+		0AD137BA2536F06600298C1F /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD137B92536F06600298C1F /* Product.swift */; };
 		0AD7A95F2520931500A1301A /* ViewControllerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD7A95E2520931500A1301A /* ViewControllerTwo.swift */; };
 		0AE7D2512315539100DEB0F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE7D2502315539100DEB0F8 /* AppDelegate.swift */; };
 		0AE7D2532315539100DEB0F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE7D2522315539100DEB0F8 /* ViewController.swift */; };
@@ -29,6 +33,9 @@
 		0A2AB89E245583D50022133A /* SwiftStudy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftStudy-Bridging-Header.h"; sourceTree = "<group>"; };
 		0A2AB89F245583D50022133A /* OCClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCClass.h; sourceTree = "<group>"; };
 		0A2AB8A0245583D50022133A /* OCClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCClass.m; sourceTree = "<group>"; };
+		0A52BC462537EE8000EADE0D /* ProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		0A52BC472537EE8000EADE0D /* ProductTableViewTwoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewTwoCell.swift; sourceTree = "<group>"; };
+		0A52BC482537EE8100EADE0D /* ProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
 		0ABC232525316876003B7357 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		0ABC23272531B6D2003B7357 /* ViewControllerThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerThree.swift; sourceTree = "<group>"; };
 		0ABC23292531B6E2003B7357 /* ViewControllerFour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFour.swift; sourceTree = "<group>"; };
@@ -36,6 +43,7 @@
 		0ABC232D2531D3B5003B7357 /* ViewControllerSix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSix.swift; sourceTree = "<group>"; };
 		0ABC232F2531D3C4003B7357 /* ViewControllerSeven.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSeven.swift; sourceTree = "<group>"; };
 		0ABC23312531D3DA003B7357 /* ViewControllerEight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerEight.swift; sourceTree = "<group>"; };
+		0AD137B92536F06600298C1F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		0AD7A95E2520931500A1301A /* ViewControllerTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTwo.swift; sourceTree = "<group>"; };
 		0AE7D24D2315539100DEB0F8 /* SwiftStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE7D2502315539100DEB0F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,23 +85,27 @@
 			isa = PBXGroup;
 			children = (
 				0AE7D2502315539100DEB0F8 /* AppDelegate.swift */,
-				0AE7D2522315539100DEB0F8 /* ViewController.swift */,
-				0AD7A95E2520931500A1301A /* ViewControllerTwo.swift */,
-				0AE7D2542315539100DEB0F8 /* Main.storyboard */,
 				0AE7D2572315539300DEB0F8 /* Assets.xcassets */,
-				0AE7D2592315539300DEB0F8 /* LaunchScreen.storyboard */,
 				0AE7D25C2315539300DEB0F8 /* Info.plist */,
-				0A2AB89C245583AD0022133A /* SwiftClass.swift */,
+				0AE7D2592315539300DEB0F8 /* LaunchScreen.storyboard */,
+				0AE7D2542315539100DEB0F8 /* Main.storyboard */,
 				0A2AB89F245583D50022133A /* OCClass.h */,
 				0A2AB8A0245583D50022133A /* OCClass.m */,
+				0AD137B92536F06600298C1F /* Product.swift */,
+				0A52BC462537EE8000EADE0D /* ProductTableViewCell.swift */,
+				0A52BC482537EE8100EADE0D /* ProductTableViewCell.xib */,
+				0A52BC472537EE8000EADE0D /* ProductTableViewTwoCell.swift */,
+				0A2AB89C245583AD0022133A /* SwiftClass.swift */,
 				0A2AB89E245583D50022133A /* SwiftStudy-Bridging-Header.h */,
 				0ABC232525316876003B7357 /* TableViewController.swift */,
-				0ABC23272531B6D2003B7357 /* ViewControllerThree.swift */,
-				0ABC23292531B6E2003B7357 /* ViewControllerFour.swift */,
-				0ABC232B2531D3A4003B7357 /* ViewControllerFive.swift */,
-				0ABC232D2531D3B5003B7357 /* ViewControllerSix.swift */,
-				0ABC232F2531D3C4003B7357 /* ViewControllerSeven.swift */,
+				0AE7D2522315539100DEB0F8 /* ViewController.swift */,
 				0ABC23312531D3DA003B7357 /* ViewControllerEight.swift */,
+				0ABC232B2531D3A4003B7357 /* ViewControllerFive.swift */,
+				0ABC23292531B6E2003B7357 /* ViewControllerFour.swift */,
+				0ABC232F2531D3C4003B7357 /* ViewControllerSeven.swift */,
+				0ABC232D2531D3B5003B7357 /* ViewControllerSix.swift */,
+				0ABC23272531B6D2003B7357 /* ViewControllerThree.swift */,
+				0AD7A95E2520931500A1301A /* ViewControllerTwo.swift */,
 			);
 			path = SwiftStudy;
 			sourceTree = "<group>";
@@ -158,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AE7D25B2315539300DEB0F8 /* LaunchScreen.storyboard in Resources */,
+				0A52BC4B2537EE8100EADE0D /* ProductTableViewCell.xib in Resources */,
 				0AE7D2582315539300DEB0F8 /* Assets.xcassets in Resources */,
 				0AE7D2562315539100DEB0F8 /* Main.storyboard in Resources */,
 			);
@@ -179,9 +192,12 @@
 				0ABC232A2531B6E2003B7357 /* ViewControllerFour.swift in Sources */,
 				0AE7D2512315539100DEB0F8 /* AppDelegate.swift in Sources */,
 				0A2AB89D245583AD0022133A /* SwiftClass.swift in Sources */,
+				0A52BC492537EE8100EADE0D /* ProductTableViewCell.swift in Sources */,
 				0ABC232C2531D3A4003B7357 /* ViewControllerFive.swift in Sources */,
 				0AD7A95F2520931500A1301A /* ViewControllerTwo.swift in Sources */,
+				0A52BC4A2537EE8100EADE0D /* ProductTableViewTwoCell.swift in Sources */,
 				0ABC232E2531D3B5003B7357 /* ViewControllerSix.swift in Sources */,
+				0AD137BA2536F06600298C1F /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
