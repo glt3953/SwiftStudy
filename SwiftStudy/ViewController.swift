@@ -10,6 +10,8 @@
 import UIKit
 
 class ViewController: UIViewController, ViewControllerTwoProtocol {
+    var animationView: UIView?
+    
     override func loadView() {
         super.loadView()
     }
@@ -25,7 +27,7 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
         self.tabBarItem.title = "首页"
 //        self.tabBarItem.image = UIImage(named: "bird1")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
 //        self.tabBarItem.selectedImage = UIImage(named: "bird2")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
-        self.view.backgroundColor = UIColor.red
+        self.view.backgroundColor = UIColor.white
         
         let buttonOne = UIButton(type: UIButton.ButtonType.custom)
         buttonOne.frame = CGRect(x: 20, y: 44+60, width: 100, height: 30)
@@ -54,8 +56,34 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
         buttonSheet.addTarget(self, action: #selector(buttonSheetClick), for: UIControl.Event.touchUpInside)
         self.view.addSubview(buttonSheet)
         
+        animationView = UIView(frame: CGRect(x: 20, y: 250, width: 100, height: 100))
+        animationView?.backgroundColor = UIColor.red
+        self.view.addSubview(animationView!)
+        
 //        let label = UILabel(frame: CGRect(x: 20, y: 200, width: 280, height: 30))
 //        self.view.addSubview(label)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        UIView.animate(withDuration: 1, animations: {
+//            self.animationView?.backgroundColor = UIColor.blue
+//        }) {(finish) in
+//            UIView.animate(withDuration: 2, animations: {
+//                self.animationView?.center = CGPoint(x: 150, y: 400)
+//            })
+//        }
+//        UIView.animate(withDuration: 1, delay: 2, options: [UIView.AnimationOptions.repeat], animations: {
+//            self.animationView?.backgroundColor = UIColor.blue
+//        }, completion: nil)
+//        UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+//            self.animationView?.center = CGPoint(x: 150, y: 350)
+//        }, completion: nil)
+//        UIView.transition(with: animationView!, duration: 3, options: .transitionCurlUp, animations: {
+//
+//        }, completion: nil)
+        let otherView = UIView(frame: CGRect(x: 20, y: 350, width: 280, height: 300))
+        otherView.backgroundColor = UIColor.blue
+        UIView.transition(from: animationView!, to: otherView, duration: 3, options: UIView.AnimationOptions.transitionFlipFromRight, completion: nil)
     }
     
     @objc func buttonClick(_ sender: AnyObject) {
