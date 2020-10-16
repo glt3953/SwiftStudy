@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import ImageIO
 
 class ViewController: UIViewController, ViewControllerTwoProtocol {
     var animationView: UIView?
@@ -56,12 +57,56 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
         buttonSheet.addTarget(self, action: #selector(buttonSheetClick), for: UIControl.Event.touchUpInside)
         self.view.addSubview(buttonSheet)
         
-        animationView = UIView(frame: CGRect(x: 20, y: 250, width: 100, height: 100))
-        animationView?.backgroundColor = UIColor.red
-        self.view.addSubview(animationView!)
+//        animationView = UIView(frame: CGRect(x: 20, y: 250, width: 100, height: 100))
+//        animationView?.backgroundColor = UIColor.red
+//        self.view.addSubview(animationView!)
+        
+//        let imageView = UIImageView(frame: CGRect(x: 20, y: 250, width: 200, height: 200))
+//        self.view.addSubview(imageView)
+//        self.playGIFOnImageView(name: "animation", imageView: imageView)
+        let webView = UIWebView(frame: CGRect(x: 20, y: 250, width: 200, height: 200))
+        self.view.addSubview(webView)
+        self.playGIFOnWebView(name: "animation", webView: webView)
         
 //        let label = UILabel(frame: CGRect(x: 20, y: 200, width: 280, height: 30))
 //        self.view.addSubview(label)
+    }
+    
+    func playGIFOnWebView(name:String, webView:UIWebView) {
+        let path = Bundle.main.path(forResource: name, ofType: "gif")
+        let url = URL.init(fileURLWithPath: path!)
+        let imageData = try! Data(contentsOf: url)
+        webView.scrollView.bounces = false
+        webView.backgroundColor = UIColor.clear
+        webView.scalesPageToFit = true
+        webView.load(imageData, mimeType: "image/gif", textEncodingName: "", baseURL: URL(string: Bundle.main.bundlePath)!)
+    }
+    
+    func playGIFOnImageView(name:String, imageView:UIImageView) {
+        let path = Bundle.main.path(forResource: name, ofType: "gif")
+        let url = URL.init(fileURLWithPath: path!)
+        let source = CGImageSourceCreateWithURL(url as CFURL, nil)
+        let count = CGImageSourceGetCount(source!)
+        var imageArray = Array<UIImage>()
+        var imagesWidth = Array<Int>()
+        var imagesHeight = Array<Int>()
+        var time:Int = Int()
+        for index in 0..<count {
+            let image = CGImageSourceCreateImageAtIndex(source!, index, nil)
+            imageArray.append(UIImage(cgImage: image!))
+            let info = CGImageSourceCopyPropertiesAtIndex(source!, index, nil) as! Dictionary<String, AnyObject>
+            let width = Int(info[kCGImagePropertyPixelWidth as String]! as! NSNumber)
+            let height = Int(info[kCGImagePropertyPixelHeight as String]! as! NSNumber)
+            imagesWidth.append(width)
+            imagesHeight.append(height)
+            let timeDic = info[kCGImagePropertyGIFDictionary as String]! as! Dictionary<String, AnyObject>
+            time += Int(timeDic[kCGImagePropertyGIFDelayTime as String]! as! NSNumber)
+        }
+        imageView.frame = CGRect(x: 0, y: 100, width: imagesWidth[0], height: imagesHeight[0])
+        imageView.animationImages = imageArray
+        imageView.animationDuration = TimeInterval(time)
+        imageView.animationRepeatCount = 0
+        imageView.startAnimating()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

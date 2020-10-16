@@ -15,6 +15,7 @@
 		0A52BC5F25384A1800EADE0D /* ViewControllerFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A52BC5825384A1800EADE0D /* ViewControllerFour.swift */; };
 		0A52BC6025384A1800EADE0D /* ViewControllerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A52BC5A25384A1800EADE0D /* ViewControllerTwo.swift */; };
 		0A52BC6125384A1800EADE0D /* WaterFallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A52BC5B25384A1800EADE0D /* WaterFallLayout.swift */; };
+		0AA722B52539A36A00F8899F /* animation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0AA722B42539A36A00F8899F /* animation.gif */; };
 		0ABC232625316876003B7357 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC232525316876003B7357 /* TableViewController.swift */; };
 		0ABC23282531B6D2003B7357 /* ViewControllerThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC23272531B6D2003B7357 /* ViewControllerThree.swift */; };
 		0ABC232C2531D3A4003B7357 /* ViewControllerFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC232B2531D3A4003B7357 /* ViewControllerFive.swift */; };
@@ -40,6 +41,7 @@
 		0A52BC5825384A1800EADE0D /* ViewControllerFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerFour.swift; sourceTree = "<group>"; };
 		0A52BC5A25384A1800EADE0D /* ViewControllerTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTwo.swift; sourceTree = "<group>"; };
 		0A52BC5B25384A1800EADE0D /* WaterFallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterFallLayout.swift; sourceTree = "<group>"; };
+		0AA722B42539A36A00F8899F /* animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = animation.gif; sourceTree = "<group>"; };
 		0ABC232525316876003B7357 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		0ABC23272531B6D2003B7357 /* ViewControllerThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerThree.swift; sourceTree = "<group>"; };
 		0ABC232B2531D3A4003B7357 /* ViewControllerFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFive.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		0AE7D24F2315539100DEB0F8 /* SwiftStudy */ = {
 			isa = PBXGroup;
 			children = (
+				0AA722B42539A36A00F8899F /* animation.gif */,
 				0A52BC5925384A1800EADE0D /* UICollectionView */,
 				0A52BC5425384A1800EADE0D /* UITableView */,
 				0AE7D2502315539100DEB0F8 /* AppDelegate.swift */,
@@ -190,6 +193,7 @@
 			files = (
 				0AE7D25B2315539300DEB0F8 /* LaunchScreen.storyboard in Resources */,
 				0A52BC5E25384A1800EADE0D /* ProductTableViewCell.xib in Resources */,
+				0AA722B52539A36A00F8899F /* animation.gif in Resources */,
 				0AE7D2582315539300DEB0F8 /* Assets.xcassets in Resources */,
 				0AE7D2562315539100DEB0F8 /* Main.storyboard in Resources */,
 			);
