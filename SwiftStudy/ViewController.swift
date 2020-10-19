@@ -68,6 +68,67 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
         self.view.addSubview(webView)
         self.playGIFOnWebView(name: "animation", webView: webView)
         
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.bounds = CGRect(x: 0, y: 460, width: 100, height: 100)
+        gradientLayer.position = CGPoint(x: 300, y: 100)
+        gradientLayer.colors = [UIColor.red.cgColor, UIColor.green.cgColor, UIColor.blue.cgColor]
+        gradientLayer.locations = [NSNumber(value: 0.2), NSNumber(value: 0.5), NSNumber(value: 0.7)]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0) //CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1) //CGPoint(x: 1, y: 0.5)
+        self.view.layer.addSublayer(gradientLayer)
+        
+        let replicatorLayer = CAReplicatorLayer()
+        replicatorLayer.position = CGPoint.zero
+        let subLayer = CALayer()
+        subLayer.bounds = CGRect(x: 0, y: 0, width: 20, height: 20)
+        subLayer.position = CGPoint(x: 150, y: 220)
+        subLayer.backgroundColor = UIColor.red.cgColor
+        replicatorLayer.addSublayer(subLayer)
+        replicatorLayer.instanceTransform = CATransform3DMakeTranslation(30, 0, 0)
+        replicatorLayer.instanceCount = 10
+        self.view.layer.addSublayer(replicatorLayer)
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.position = CGPoint.zero
+        let path = CGMutablePath()
+        path.move(to: CGPoint(x: 250, y: 250))
+        path.addLine(to: CGPoint(x: 450, y: 250))
+        path.addLine(to: CGPoint(x: 350, y: 350))
+        path.addLine(to: CGPoint(x: 250, y: 250))
+        shapeLayer.path = path
+        shapeLayer.strokeStart = 0
+        shapeLayer.strokeEnd = 1
+        shapeLayer.fillRule = CAShapeLayerFillRule.evenOdd
+        shapeLayer.fillColor = UIColor.red.cgColor
+        shapeLayer.strokeColor = UIColor.blue.cgColor
+        shapeLayer.lineWidth = 1
+        self.view.layer.addSublayer(shapeLayer)
+        
+        let basicAni = CABasicAnimation(keyPath: "transform.rotation.z")
+        basicAni.fromValue = NSNumber(value: 0)
+        basicAni.toValue = NSNumber(value: Double.pi)
+        basicAni.duration = 2
+        self.view.layer.add(basicAni, forKey: nil)
+        
+        //关键帧动画
+        let keyframeAni = CAKeyframeAnimation(keyPath: "transform.rotation.z")
+        keyframeAni.values = [NSNumber(value: 0), NSNumber(value: Double.pi/4), NSNumber(value: 0), NSNumber(value: Double.pi)]
+        keyframeAni.duration = 3
+        self.view.layer.add(keyframeAni, forKey: "")
+        
+        //阻尼动画
+        let springAni = CASpringAnimation(keyPath: "position.y")
+        springAni.mass = 2 //模拟重物质量
+        springAni.stiffness = 5 //模拟弹簧劲度系数
+        springAni.damping = 2 //设置阻尼系数
+        springAni.toValue = 300
+        springAni.duration = 3
+        let layer = CALayer()
+        layer.position = CGPoint(x: 280, y: 400)
+        layer.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+        layer.backgroundColor = UIColor.red.cgColor
+        self.view.layer.addSublayer(layer)
+        layer.add(springAni, forKey: "")
 //        let label = UILabel(frame: CGRect(x: 20, y: 200, width: 280, height: 30))
 //        self.view.addSubview(label)
     }
@@ -126,9 +187,35 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
 //        UIView.transition(with: animationView!, duration: 3, options: .transitionCurlUp, animations: {
 //
 //        }, completion: nil)
-        let otherView = UIView(frame: CGRect(x: 20, y: 350, width: 280, height: 300))
-        otherView.backgroundColor = UIColor.blue
-        UIView.transition(from: animationView!, to: otherView, duration: 3, options: UIView.AnimationOptions.transitionFlipFromRight, completion: nil)
+//        let otherView = UIView(frame: CGRect(x: 20, y: 350, width: 280, height: 300))
+//        otherView.backgroundColor = UIColor.blue
+//        UIView.transition(from: animationView!, to: otherView, duration: 3, options: UIView.AnimationOptions.transitionFlipFromRight, completion: nil)
+        
+        //转场动画
+//        let transAni = CATransition()
+//        transAni.type = CATransitionType.push
+//        transAni.subtype = CATransitionSubtype.fromTop
+//        let layer = CALayer()
+//        layer.position = CGPoint(x: 280, y: 400)
+//        layer.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+//        layer.backgroundColor = UIColor.red.cgColor
+//        layer.add(transAni, forKey: "")
+//        self.view.layer.addSublayer(layer)
+        
+        //组合动画
+        let basicAni = CABasicAnimation(keyPath: "backgroundColor")
+        basicAni.toValue = UIColor.green.cgColor
+        let basicAni2 = CABasicAnimation(keyPath: "transform.scale.x")
+        basicAni.toValue = NSNumber(value: 2)
+        let groupAni = CAAnimationGroup()
+        groupAni.animations = [basicAni, basicAni2]
+        groupAni.duration = 3
+        let layer = CALayer()
+        layer.position = CGPoint(x: 280, y: 400)
+        layer.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+        layer.backgroundColor = UIColor.red.cgColor
+        layer.add(groupAni, forKey: "")
+        self.view.layer.addSublayer(layer)
     }
     
     @objc func buttonClick(_ sender: AnyObject) {
