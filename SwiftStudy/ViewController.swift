@@ -20,15 +20,45 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         let barItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClick))
         self.navigationItem.leftBarButtonItem = barItem
-        
         self.tabBarItem.title = "首页"
-//        self.tabBarItem.image = UIImage(named: "bird1")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
-//        self.tabBarItem.selectedImage = UIImage(named: "bird2")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        //        self.tabBarItem.image = UIImage(named: "bird1")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        //        self.tabBarItem.selectedImage = UIImage(named: "bird2")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         self.view.backgroundColor = UIColor.white
+        
+        //粒子效果
+        self.view.backgroundColor = UIColor.black
+        let fireEmitter = CAEmitterLayer()
+        fireEmitter.emitterPosition = CGPoint(x: self.view.bounds.size.width/2, y: self.view.bounds.size.height-50)
+        fireEmitter.emitterSize = CGSize(width: self.view.bounds.size.width-100, height: 20)
+        fireEmitter.renderMode = CAEmitterLayerRenderMode.additive //粒子的渲染模式为混合渲染
+        let fireCell = CAEmitterCell()
+        fireCell.birthRate = 1500
+        fireCell.lifetime = 3.0
+        fireCell.lifetimeRange = 1.5
+        fireCell.color = UIColor(red: 0.8, green: 0.4, blue: 0.2, alpha: 0.1).cgColor
+        fireCell.contents = UIImage(named: "emtter")?.cgImage
+        fireCell.velocity = 120 //粒子运动速度为120
+        fireCell.velocityRange = 60 //粒子运动速度随机范围为60
+        fireCell.emissionLongitude = CGFloat(Double.pi + Double.pi/2) //粒子在x-y平面的发射角度
+        fireCell.emissionRange = CGFloat(Double.pi/2) //粒子发射角度的随机范围
+        fireCell.scaleSpeed = 0.5 //粒子的缩放速率
+        fireCell.spin = 0.2 //粒子的旋转
+        let smokeCell = CAEmitterCell()
+        smokeCell.birthRate = 1000
+        smokeCell.lifetime = 4.0
+        smokeCell.lifetimeRange = 1.5
+        smokeCell.color = UIColor(red: 1, green: 1, blue: 1, alpha: 0.05).cgColor
+        smokeCell.contents = UIImage(named: "emtter")?.cgImage
+        smokeCell.velocity = 200
+        smokeCell.velocity = 100
+        smokeCell.emissionLongitude = CGFloat(Double.pi+Double.pi/2)
+        smokeCell.emissionRange = CGFloat(Double.pi/2)
+        fireEmitter.emitterCells = [fireCell, smokeCell]
+        self.view.layer.addSublayer(fireEmitter)
+        return
         
         let buttonOne = UIButton(type: UIButton.ButtonType.custom)
         buttonOne.frame = CGRect(x: 20, y: 44+60, width: 100, height: 30)
@@ -203,19 +233,19 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
 //        self.view.layer.addSublayer(layer)
         
         //组合动画
-        let basicAni = CABasicAnimation(keyPath: "backgroundColor")
-        basicAni.toValue = UIColor.green.cgColor
-        let basicAni2 = CABasicAnimation(keyPath: "transform.scale.x")
-        basicAni.toValue = NSNumber(value: 2)
-        let groupAni = CAAnimationGroup()
-        groupAni.animations = [basicAni, basicAni2]
-        groupAni.duration = 3
-        let layer = CALayer()
-        layer.position = CGPoint(x: 280, y: 400)
-        layer.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
-        layer.backgroundColor = UIColor.red.cgColor
-        layer.add(groupAni, forKey: "")
-        self.view.layer.addSublayer(layer)
+//        let basicAni = CABasicAnimation(keyPath: "backgroundColor")
+//        basicAni.toValue = UIColor.green.cgColor
+//        let basicAni2 = CABasicAnimation(keyPath: "transform.scale.x")
+//        basicAni.toValue = NSNumber(value: 2)
+//        let groupAni = CAAnimationGroup()
+//        groupAni.animations = [basicAni, basicAni2]
+//        groupAni.duration = 3
+//        let layer = CALayer()
+//        layer.position = CGPoint(x: 280, y: 400)
+//        layer.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+//        layer.backgroundColor = UIColor.red.cgColor
+//        layer.add(groupAni, forKey: "")
+//        self.view.layer.addSublayer(layer)
     }
     
     @objc func buttonClick(_ sender: AnyObject) {
