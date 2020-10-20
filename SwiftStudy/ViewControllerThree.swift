@@ -9,12 +9,13 @@
 import UIKit
 import WebKit
 
-class ViewControllerThree: UIViewController, UIWebViewDelegate, WKScriptMessageHandler {
+class ViewControllerThree: UIViewController, UITextViewDelegate, UIWebViewDelegate, WKScriptMessageHandler {
     var webView: UIWebView?
     var buttonGoBack: UIButton!
     var buttonGoForward: UIButton!
     var wkView: WKWebView?
     var progressView: UIProgressView?
+    var textView:UITextView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,48 @@ class ViewControllerThree: UIViewController, UIWebViewDelegate, WKScriptMessageH
         // Do any additional setup after loading the view.
         self.tabBarItem.title = "直播"
         self.navigationController?.tabBarItem.title = "直播"
-        self.view.backgroundColor = UIColor.blue
+        self.view.backgroundColor = UIColor.white
+        
+        textView = UITextView()
+        textView?.layer.borderWidth = 1
+        textView?.layer.borderColor = UIColor.gray.cgColor
+        textView?.delegate = self
+        self.view.addSubview(textView!)
+        textView?.snp.makeConstraints({ (make) in
+            make.leading.equalTo(100)
+            make.trailing.equalTo(-100)
+            make.top.equalTo(150)
+            make.height.equalTo(30)
+        })
+        return
+        
+        let view = UIView()
+//        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor.red
+        self.view.addSubview(view)
+        //SnapKit调用示例
+//        view.snp.makeConstraints { (make) in
+//            make.left.equalTo(20)
+//            make.right.equalTo(-20)
+//            make.top.equalTo(20)
+//            make.bottom.equalTo(-20)
+//        }
+        view.snp.makeConstraints { (make) in
+            make.left.top.equalTo(20)
+            make.right.bottom.equalTo(-20)
+        }
+//        let layoutConstraint = NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0)
+//        let layoutConstraint2 = NSLayoutConstraint(item: view, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1, constant: 0)
+//        let layoutConstraint3 = NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 200)
+//        let layoutConstraint4 = NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 200)
+//        self.view.addConstraints([layoutConstraint, layoutConstraint2, layoutConstraint3, layoutConstraint4])
+//        let stringH = "H:|-60-[view]-60-|" //左右边距各为60
+//        let stringV = "V:|-60-[view(200)]" //上边距为60，高度为200
+//        let constraintArrayH = NSLayoutConstraint.constraints(withVisualFormat: stringH, options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["view":view])
+//        let constraintArrayV = NSLayoutConstraint.constraints(withVisualFormat: stringV, options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["view":view])
+//        self.view.addConstraints(constraintArrayH)
+//        self.view.addConstraints(constraintArrayV)
+        return
         
         let configuration = WKWebViewConfiguration()
         let processPool = WKProcessPool()
@@ -38,12 +80,12 @@ class ViewControllerThree: UIViewController, UIWebViewDelegate, WKScriptMessageH
         let userScript = WKUserScript(source: javaScriptString, injectionTime: .atDocumentStart, forMainFrameOnly: false)
         userContentController.addUserScript(userScript)
         configuration.userContentController = userContentController
-        wkView = WKWebView(frame: self.view.frame, configuration: configuration)
+        wkView = WKWebView(frame: CGRect(x: 0, y: 100, width: self.view.frame.size.width, height: 100), configuration: configuration)
         self.view.addSubview(wkView!)
         
 //        let url = URL(string: "https://www.baidu.com")
 //        let request = URLRequest(url: url!)
-        wkView?.loadHTMLString("<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=330 height=86 src=\"//music.163.com/outchain/player?type=2&id=1392990601&auto=1&height=66\"></iframe>", baseURL: URL(string: "https://music.163.com"))
+        wkView?.loadHTMLString("<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=530 height=186 src=\"//music.163.com/outchain/player?type=2&id=1392990601&auto=1&height=66\"></iframe>", baseURL: URL(string: "https://music.163.com"))
 //        wkView!.load(request)
         
         progressView = UIProgressView(frame: CGRect(x: 0, y: 90, width: self.view.frame.size.width, height: 10))
@@ -75,6 +117,28 @@ class ViewControllerThree: UIViewController, UIWebViewDelegate, WKScriptMessageH
 //
 //        toolView.addSubview(buttonGoBack)
 //        toolView.addSubview(buttonGoForward)
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if textView.bounds.size.height >= 100 {
+            if textView.contentSize.height < textView.bounds.size.height {
+                textView.snp.updateConstraints { (reMake) in
+                    reMake.height.equalTo(textView.contentSize.height)
+                }
+            }
+        }
+        
+        if (textView.contentSize.height != textView.bounds.size.height) && textView.bounds.size.height < 100 {
+            textView.snp.updateConstraints { (reMake) in
+                reMake.height.equalTo(textView.contentSize.height)
+            }
+            
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
+        }
+        
+        return true
     }
     
     @objc func goBack() {

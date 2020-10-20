@@ -58,14 +58,30 @@
                     <view key="view" contentMode="scaleToFill" id="aty-CH-ZiB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uhj-dL-Oae">
+                                <rect key="frame" x="157" y="398" width="100" height="100"/>
+                                <color key="backgroundColor" red="1" green="0.2181303879" blue="0.031600215520000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="3i2-FX-xFe"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="MbM-yu-Zr2"/>
+                                    <constraint firstAttribute="height" constant="100" id="kTt-AP-8nw"/>
+                                    <constraint firstAttribute="width" constant="100" id="t4G-Wq-fGt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Uhj-dL-Oae" firstAttribute="centerX" secondItem="aty-CH-ZiB" secondAttribute="centerX" id="awD-AL-cTj"/>
+                            <constraint firstItem="Uhj-dL-Oae" firstAttribute="centerY" secondItem="aty-CH-ZiB" secondAttribute="centerY" id="c5s-s1-fcL"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="zrt-Ff-Qp6"/>
                     <navigationItem key="navigationItem" id="Daa-dI-XfO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cV3-j5-61E" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4387" y="-208"/>
+            <point key="canvasLocation" x="4386.9565217391309" y="-208.25892857142856"/>
         </scene>
         <!--Item-->
         <scene sceneID="eXl-iG-K3W">
@@ -170,7 +186,6 @@
         <!--Item-->
         <scene sceneID="P9e-DM-5b4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cao-67-bfT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yyW-PP-Nzc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="88E-x3-DBK"/>
                     <toolbarItems/>
@@ -183,13 +198,13 @@
                         <segue destination="g6P-kd-wVL" kind="relationship" relationship="rootViewController" id="FNp-2X-RHO"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cao-67-bfT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3551" y="-208"/>
         </scene>
         <!--Item-->
         <scene sceneID="0iQ-JJ-uQY">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K0a-nl-baY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xhe-Tn-d3p" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="JT5-EQ-pBD"/>
                     <toolbarItems/>
@@ -202,6 +217,7 @@
                         <segue destination="PmE-aC-lHd" kind="relationship" relationship="rootViewController" id="iui-2Y-0E1"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K0a-nl-baY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3551" y="461"/>
         </scene>
@@ -211,6 +227,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Mfa-79-iaw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Cza-lX-IoQ">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
