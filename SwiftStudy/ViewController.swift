@@ -12,6 +12,8 @@ import ImageIO
 
 class ViewController: UIViewController, ViewControllerTwoProtocol {
     var animationView: UIView?
+    let urlString = "http://api.tianapi.com/txapi/wxhottopic/?key=897c62d4673212f094b5eeda5066853e&num=1" //http://api.tianapi.com/txapi/userinfo/?key=897c62d4673212f094b5eeda5066853e&apiid=1
+    let apikey = "897c62d4673212f094b5eeda5066853e"
     
     override func loadView() {
         super.loadView()
@@ -27,6 +29,49 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
         //        self.tabBarItem.image = UIImage(named: "bird1")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         //        self.tabBarItem.selectedImage = UIImage(named: "bird2")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         self.view.backgroundColor = UIColor.white
+        
+//        let plistPath = Bundle.main.path(forResource: "NewPlist", ofType: "plist")
+//        let dic = NSDictionary(contentsOfFile: plistPath!)
+//        print(dic ?? "dic为nil")
+        let plistPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+        let fileName = plistPath! + "/MyPlist.plist"
+        let dic:NSDictionary = ["name":"NingXia", "age":"29"]
+        dic.write(toFile: fileName, atomically: true)
+        let dicRes = NSDictionary(contentsOfFile: fileName)
+        print(dicRes ?? "dicRes为nil")
+        
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(URL(string: "http://www.baidu.com"), forKey:"urlKey")
+        userDefaults.set("stringValue", forKey: "stringKey")
+        userDefaults.set(true, forKey: "boolKey")
+        userDefaults.set(Double(0.1), forKey: "doubleKey")
+        userDefaults.set(Float(1.5), forKey: "floatKey")
+        userDefaults.set(5, forKey: "intKey")
+        userDefaults.set(["1":"一"], forKey: "dicKey")
+        userDefaults.set([1, 2, 3, 4], forKey: "arrKey")
+        userDefaults.set(Data(), forKey: "dataKey")
+        userDefaults.synchronize()
+        userDefaults.removeObject(forKey: "urlKey")
+        print(userDefaults.url(forKey: "urlKey") ?? "无url")
+        print(userDefaults.string(forKey: "stringKey"))
+        print(userDefaults.bool(forKey: "boolKey"))
+        print(userDefaults.double(forKey: "doubleKey"))
+        print(userDefaults.float(forKey: "floatKey"))
+        print(userDefaults.integer(forKey: "intKey"))
+        print(userDefaults.dictionary(forKey: "dicKey"))
+        print(userDefaults.array(forKey: "arrKey"))
+        print(userDefaults.data(forKey: "dataKey"))
+        
+        
+        let config = URLSessionConfiguration.default
+        let url = URL(string: String(format: urlString, apikey))
+        let request = URLRequest(url: url!)
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            let dictionary = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
+            print(dictionary ?? "未解析到数据")
+        }
+        task.resume()
         
         //粒子效果
         self.view.backgroundColor = UIColor.black

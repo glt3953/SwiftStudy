@@ -52,6 +52,7 @@
 		0A90FED5253EE0AE0055B7E4 /* ConstraintDirectionalInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90FEB0253EE0AD0055B7E4 /* ConstraintDirectionalInsets.swift */; };
 		0A90FED6253EE0AE0055B7E4 /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90FEB1253EE0AD0055B7E4 /* ConstraintLayoutSupportDSL.swift */; };
 		0A90FED7253EE0AE0055B7E4 /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90FEB2253EE0AD0055B7E4 /* ConstraintMakerRelatable.swift */; };
+		0A90FED925402D130055B7E4 /* NewPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90FED825402D130055B7E4 /* NewPlist.plist */; };
 		0AA722B52539A36A00F8899F /* animation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0AA722B42539A36A00F8899F /* animation.gif */; };
 		0ABC232625316876003B7357 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC232525316876003B7357 /* TableViewController.swift */; };
 		0ABC23282531B6D2003B7357 /* ViewControllerThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC23272531B6D2003B7357 /* ViewControllerThree.swift */; };
@@ -116,6 +117,7 @@
 		0A90FEB0253EE0AD0055B7E4 /* ConstraintDirectionalInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDirectionalInsets.swift; sourceTree = "<group>"; };
 		0A90FEB1253EE0AD0055B7E4 /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
 		0A90FEB2253EE0AD0055B7E4 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
+		0A90FED825402D130055B7E4 /* NewPlist.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NewPlist.plist; sourceTree = "<group>"; };
 		0AA722B42539A36A00F8899F /* animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = animation.gif; sourceTree = "<group>"; };
 		0ABC232525316876003B7357 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		0ABC23272531B6D2003B7357 /* ViewControllerThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerThree.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				0ABC232F2531D3C4003B7357 /* ViewControllerSeven.swift */,
 				0ABC232D2531D3B5003B7357 /* ViewControllerSix.swift */,
 				0ABC23272531B6D2003B7357 /* ViewControllerThree.swift */,
+				0A90FED825402D130055B7E4 /* NewPlist.plist */,
 			);
 			path = SwiftStudy;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				0AA722B52539A36A00F8899F /* animation.gif in Resources */,
 				0AE7D2582315539300DEB0F8 /* Assets.xcassets in Resources */,
 				0AE7D2562315539100DEB0F8 /* Main.storyboard in Resources */,
+				0A90FED925402D130055B7E4 /* NewPlist.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
