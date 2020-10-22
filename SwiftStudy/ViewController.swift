@@ -30,6 +30,32 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
         //        self.tabBarItem.selectedImage = UIImage(named: "bird2")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         self.view.backgroundColor = UIColor.white
         
+        ObjectiveC_Hander.runNormalSql("create table Student(name text PRIMARY KEY, age integer DEFAULT 15)")
+        ObjectiveC_Hander.runNormalSql("insert into Student(name, age) values (\"宁侠\", 25)")
+        
+        let homeDicPath = NSHomeDirectory()
+        let filePath = homeDicPath + "/archiver.file"
+        let people = People()
+        people.name = "NingXia"
+        people.age = 30
+        NSKeyedArchiver.archiveRootObject(people, toFile: filePath)
+        let getPeople = NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as! People
+        print("\(getPeople.name):\(getPeople.age)")
+//        let mutableData = NSMutableData()
+//        let archiver = NSKeyedArchiver(forWritingWith: mutableData)
+//        archiver.encode(30, forKey: "age")
+//        archiver.encode("NingXia", forKey: "name")
+//        archiver.finishEncoding()
+//        mutableData.write(toFile: filePath, atomically: true)
+//        let data = try? Data(contentsOf: URL(fileURLWithPath: filePath))
+//        let unArchiver = NSKeyedUnarchiver(forReadingWith: data!)
+//        let age = unArchiver.decodeInt32(forKey: "age")
+//        let name = unArchiver.decodeObject(forKey: "name")
+//        print("\(name):\(age)")
+//        NSKeyedArchiver.archiveRootObject("NingXia", toFile: filePath)
+//        let name = NSKeyedUnarchiver.unarchiveObject(withFile: filePath)
+//        print(name ?? "name为nil")
+        
 //        let plistPath = Bundle.main.path(forResource: "NewPlist", ofType: "plist")
 //        let dic = NSDictionary(contentsOfFile: plistPath!)
 //        print(dic ?? "dic为nil")

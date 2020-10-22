@@ -54,6 +54,9 @@
 		0A90FED7253EE0AE0055B7E4 /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90FEB2253EE0AD0055B7E4 /* ConstraintMakerRelatable.swift */; };
 		0A90FED925402D130055B7E4 /* NewPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90FED825402D130055B7E4 /* NewPlist.plist */; };
 		0AA722B52539A36A00F8899F /* animation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0AA722B42539A36A00F8899F /* animation.gif */; };
+		0AB6BD3C2541276700D23685 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6BD3B2541276700D23685 /* People.swift */; };
+		0AB6BD3F2541787900D23685 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB6BD3E2541787900D23685 /* libsqlite3.0.tbd */; };
+		0AB6BD432541792900D23685 /* ObjectiveC_Hander.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6BD422541792900D23685 /* ObjectiveC_Hander.m */; };
 		0ABC232625316876003B7357 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC232525316876003B7357 /* TableViewController.swift */; };
 		0ABC23282531B6D2003B7357 /* ViewControllerThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC23272531B6D2003B7357 /* ViewControllerThree.swift */; };
 		0ABC232C2531D3A4003B7357 /* ViewControllerFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC232B2531D3A4003B7357 /* ViewControllerFive.swift */; };
@@ -119,6 +122,11 @@
 		0A90FEB2253EE0AD0055B7E4 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
 		0A90FED825402D130055B7E4 /* NewPlist.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NewPlist.plist; sourceTree = "<group>"; };
 		0AA722B42539A36A00F8899F /* animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = animation.gif; sourceTree = "<group>"; };
+		0AB6BD3B2541276700D23685 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
+		0AB6BD3E2541787900D23685 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		0AB6BD40254178B600D23685 /* bridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridgeHeader.h; sourceTree = "<group>"; };
+		0AB6BD412541792900D23685 /* ObjectiveC_Hander.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectiveC_Hander.h; sourceTree = "<group>"; };
+		0AB6BD422541792900D23685 /* ObjectiveC_Hander.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjectiveC_Hander.m; sourceTree = "<group>"; };
 		0ABC232525316876003B7357 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		0ABC23272531B6D2003B7357 /* ViewControllerThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerThree.swift; sourceTree = "<group>"; };
 		0ABC232B2531D3A4003B7357 /* ViewControllerFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFive.swift; sourceTree = "<group>"; };
@@ -140,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AB6BD3F2541787900D23685 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,11 +220,20 @@
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
+		0AB6BD3D2541787900D23685 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0AB6BD3E2541787900D23685 /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0AE7D2442315539100DEB0F8 = {
 			isa = PBXGroup;
 			children = (
 				0AE7D24F2315539100DEB0F8 /* SwiftStudy */,
 				0AE7D24E2315539100DEB0F8 /* Products */,
+				0AB6BD3D2541787900D23685 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -230,6 +248,8 @@
 		0AE7D24F2315539100DEB0F8 /* SwiftStudy */ = {
 			isa = PBXGroup;
 			children = (
+				0AB6BD412541792900D23685 /* ObjectiveC_Hander.h */,
+				0AB6BD422541792900D23685 /* ObjectiveC_Hander.m */,
 				0A90FE8C253EE0AD0055B7E4 /* SnapKit */,
 				0AA722B42539A36A00F8899F /* animation.gif */,
 				0A52BC5925384A1800EADE0D /* UICollectionView */,
@@ -252,6 +272,8 @@
 				0ABC232D2531D3B5003B7357 /* ViewControllerSix.swift */,
 				0ABC23272531B6D2003B7357 /* ViewControllerThree.swift */,
 				0A90FED825402D130055B7E4 /* NewPlist.plist */,
+				0AB6BD3B2541276700D23685 /* People.swift */,
+				0AB6BD40254178B600D23685 /* bridgeHeader.h */,
 			);
 			path = SwiftStudy;
 			sourceTree = "<group>";
@@ -355,6 +377,7 @@
 				0A90FECF253EE0AE0055B7E4 /* Constraint.swift in Sources */,
 				0A90FED3253EE0AE0055B7E4 /* LayoutConstraint.swift in Sources */,
 				0ABC23282531B6D2003B7357 /* ViewControllerThree.swift in Sources */,
+				0AB6BD432541792900D23685 /* ObjectiveC_Hander.m in Sources */,
 				0A90FEBA253EE0AD0055B7E4 /* ConstraintInsets.swift in Sources */,
 				0A52BC5C25384A1800EADE0D /* ProductTableViewTwoCell.swift in Sources */,
 				0A90FEC8253EE0AE0055B7E4 /* ConstraintOffsetTarget.swift in Sources */,
@@ -382,6 +405,7 @@
 				0A90FEC6253EE0AE0055B7E4 /* Typealiases.swift in Sources */,
 				0A90FEB8253EE0AD0055B7E4 /* ConstraintViewDSL.swift in Sources */,
 				0A90FEC2253EE0AD0055B7E4 /* UILayoutSupport+Extensions.swift in Sources */,
+				0AB6BD3C2541276700D23685 /* People.swift in Sources */,
 				0A90FED7253EE0AE0055B7E4 /* ConstraintMakerRelatable.swift in Sources */,
 				0A90FEBD253EE0AD0055B7E4 /* ConstraintMakerExtendable.swift in Sources */,
 			);
@@ -540,7 +564,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = NingXia.SwiftStudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SwiftStudy/SwiftStudy-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = SwiftStudy/bridgeHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -562,7 +586,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = NingXia.SwiftStudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SwiftStudy/SwiftStudy-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = SwiftStudy/bridgeHeader.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
