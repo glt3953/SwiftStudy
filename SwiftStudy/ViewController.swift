@@ -9,6 +9,7 @@
 
 import UIKit
 import ImageIO
+import CoreData
 
 class ViewController: UIViewController, ViewControllerTwoProtocol {
     var animationView: UIView?
@@ -29,6 +30,30 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
         //        self.tabBarItem.image = UIImage(named: "bird1")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         //        self.tabBarItem.selectedImage = UIImage(named: "bird2")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         self.view.backgroundColor = UIColor.white
+        
+        let modelURL = Bundle.main.url(forResource: "Class", withExtension: "momd")
+        let modelManager = NSManagedObjectModel(contentsOf: modelURL!) //数据模型管理类
+        let store = NSPersistentStoreCoordinator(managedObjectModel: modelManager!) //数据库与数据模型之间的链接类，将数据模型创建的数据映射为数据库中的数据
+        let sqlitePath = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! + "/.SchoolSQL.sqlite")
+        print(sqlitePath)
+        try! store.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: sqlitePath, options: nil)
+        let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType) //核心的数据管理类，进行数据的相关操作
+        context.persistentStoreCoordinator = store
+        let schoolClass:SchoolClass = NSEntityDescription.insertNewObject(forEntityName: "SchoolClass", into: context) as! SchoolClass //将实体类进行实体化
+        schoolClass.name = "三年二班"
+        schoolClass.studentCount = 60
+        let student:Student = NSEntityDescription.insertNewObject(forEntityName: "Student", into: context) as! Student
+        student.name = "NingXia"
+        student.age = 30
+        schoolClass.monitor = student
+        if ((try? context.save()) != nil) {
+            print("新增数据成功")
+        }
+        //创建查询请求
+        let fetchRequest = NSFetchRequest<SchoolClass>(entityName: "SchoolClass")
+        fetchRequest.predicate = NSPredicate(format: "studentCount == 60")
+        let result:NSAsynchronousFetchResult<SchoolClass> = try! context.execute(fetchRequest) as! NSAsynchronousFetchResult<SchoolClass>
+        print(result.finalResult?.first?.name)
         
         ObjectiveC_Hander.runNormalSql("create table Student(name text PRIMARY KEY, age integer DEFAULT 15)")
         ObjectiveC_Hander.runNormalSql("insert into Student(name, age) values (\"宁侠\", 25)")

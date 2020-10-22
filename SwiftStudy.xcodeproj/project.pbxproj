@@ -57,6 +57,11 @@
 		0AB6BD3C2541276700D23685 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6BD3B2541276700D23685 /* People.swift */; };
 		0AB6BD3F2541787900D23685 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB6BD3E2541787900D23685 /* libsqlite3.0.tbd */; };
 		0AB6BD432541792900D23685 /* ObjectiveC_Hander.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6BD422541792900D23685 /* ObjectiveC_Hander.m */; };
+		0AB6BD462541816500D23685 /* Class.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6BD442541816500D23685 /* Class.xcdatamodeld */; };
+		0AB6BD4B2541826A00D23685 /* SchoolClass+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6BD472541826A00D23685 /* SchoolClass+CoreDataClass.swift */; };
+		0AB6BD4C2541826A00D23685 /* SchoolClass+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6BD482541826A00D23685 /* SchoolClass+CoreDataProperties.swift */; };
+		0AB6BD4D2541826A00D23685 /* Student+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6BD492541826A00D23685 /* Student+CoreDataClass.swift */; };
+		0AB6BD4E2541826A00D23685 /* Student+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6BD4A2541826A00D23685 /* Student+CoreDataProperties.swift */; };
 		0ABC232625316876003B7357 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC232525316876003B7357 /* TableViewController.swift */; };
 		0ABC23282531B6D2003B7357 /* ViewControllerThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC23272531B6D2003B7357 /* ViewControllerThree.swift */; };
 		0ABC232C2531D3A4003B7357 /* ViewControllerFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC232B2531D3A4003B7357 /* ViewControllerFive.swift */; };
@@ -127,6 +132,11 @@
 		0AB6BD40254178B600D23685 /* bridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridgeHeader.h; sourceTree = "<group>"; };
 		0AB6BD412541792900D23685 /* ObjectiveC_Hander.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectiveC_Hander.h; sourceTree = "<group>"; };
 		0AB6BD422541792900D23685 /* ObjectiveC_Hander.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjectiveC_Hander.m; sourceTree = "<group>"; };
+		0AB6BD452541816500D23685 /* Class.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Class.xcdatamodel; sourceTree = "<group>"; };
+		0AB6BD472541826A00D23685 /* SchoolClass+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchoolClass+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0AB6BD482541826A00D23685 /* SchoolClass+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchoolClass+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0AB6BD492541826A00D23685 /* Student+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Student+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0AB6BD4A2541826A00D23685 /* Student+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Student+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0ABC232525316876003B7357 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		0ABC23272531B6D2003B7357 /* ViewControllerThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerThree.swift; sourceTree = "<group>"; };
 		0ABC232B2531D3A4003B7357 /* ViewControllerFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFive.swift; sourceTree = "<group>"; };
@@ -248,32 +258,37 @@
 		0AE7D24F2315539100DEB0F8 /* SwiftStudy */ = {
 			isa = PBXGroup;
 			children = (
-				0AB6BD412541792900D23685 /* ObjectiveC_Hander.h */,
-				0AB6BD422541792900D23685 /* ObjectiveC_Hander.m */,
-				0A90FE8C253EE0AD0055B7E4 /* SnapKit */,
 				0AA722B42539A36A00F8899F /* animation.gif */,
-				0A52BC5925384A1800EADE0D /* UICollectionView */,
-				0A52BC5425384A1800EADE0D /* UITableView */,
 				0AE7D2502315539100DEB0F8 /* AppDelegate.swift */,
 				0AE7D2572315539300DEB0F8 /* Assets.xcassets */,
+				0AB6BD40254178B600D23685 /* bridgeHeader.h */,
+				0AB6BD442541816500D23685 /* Class.xcdatamodeld */,
 				0AE7D25C2315539300DEB0F8 /* Info.plist */,
 				0AE7D2592315539300DEB0F8 /* LaunchScreen.storyboard */,
 				0AE7D2542315539100DEB0F8 /* Main.storyboard */,
+				0A90FED825402D130055B7E4 /* NewPlist.plist */,
+				0AB6BD412541792900D23685 /* ObjectiveC_Hander.h */,
+				0AB6BD422541792900D23685 /* ObjectiveC_Hander.m */,
 				0A2AB89F245583D50022133A /* OCClass.h */,
 				0A2AB8A0245583D50022133A /* OCClass.m */,
+				0AB6BD3B2541276700D23685 /* People.swift */,
 				0AD137B92536F06600298C1F /* Product.swift */,
+				0AB6BD472541826A00D23685 /* SchoolClass+CoreDataClass.swift */,
+				0AB6BD482541826A00D23685 /* SchoolClass+CoreDataProperties.swift */,
+				0A90FE8C253EE0AD0055B7E4 /* SnapKit */,
+				0AB6BD492541826A00D23685 /* Student+CoreDataClass.swift */,
+				0AB6BD4A2541826A00D23685 /* Student+CoreDataProperties.swift */,
 				0A2AB89C245583AD0022133A /* SwiftClass.swift */,
 				0A2AB89E245583D50022133A /* SwiftStudy-Bridging-Header.h */,
 				0ABC232525316876003B7357 /* TableViewController.swift */,
+				0A52BC5925384A1800EADE0D /* UICollectionView */,
+				0A52BC5425384A1800EADE0D /* UITableView */,
 				0AE7D2522315539100DEB0F8 /* ViewController.swift */,
 				0ABC23312531D3DA003B7357 /* ViewControllerEight.swift */,
 				0ABC232B2531D3A4003B7357 /* ViewControllerFive.swift */,
 				0ABC232F2531D3C4003B7357 /* ViewControllerSeven.swift */,
 				0ABC232D2531D3B5003B7357 /* ViewControllerSix.swift */,
 				0ABC23272531B6D2003B7357 /* ViewControllerThree.swift */,
-				0A90FED825402D130055B7E4 /* NewPlist.plist */,
-				0AB6BD3B2541276700D23685 /* People.swift */,
-				0AB6BD40254178B600D23685 /* bridgeHeader.h */,
 			);
 			path = SwiftStudy;
 			sourceTree = "<group>";
@@ -362,17 +377,21 @@
 				0A90FEB6253EE0AD0055B7E4 /* ConstraintMakerPriortizable.swift in Sources */,
 				0ABC232625316876003B7357 /* TableViewController.swift in Sources */,
 				0AE7D2532315539100DEB0F8 /* ViewController.swift in Sources */,
+				0AB6BD462541816500D23685 /* Class.xcdatamodeld in Sources */,
 				0A90FEBB253EE0AD0055B7E4 /* ConstraintMakerFinalizable.swift in Sources */,
 				0A52BC6025384A1800EADE0D /* ViewControllerTwo.swift in Sources */,
 				0A90FED0253EE0AE0055B7E4 /* Debugging.swift in Sources */,
+				0AB6BD4B2541826A00D23685 /* SchoolClass+CoreDataClass.swift in Sources */,
 				0A90FEB3253EE0AD0055B7E4 /* ConstraintMultiplierTarget.swift in Sources */,
 				0A90FECC253EE0AE0055B7E4 /* ConstraintLayoutGuideDSL.swift in Sources */,
 				0A90FED5253EE0AE0055B7E4 /* ConstraintDirectionalInsets.swift in Sources */,
 				0A90FEB7253EE0AD0055B7E4 /* ConstraintAttributes.swift in Sources */,
+				0AB6BD4C2541826A00D23685 /* SchoolClass+CoreDataProperties.swift in Sources */,
 				0A90FEB9253EE0AD0055B7E4 /* ConstraintPriorityTarget.swift in Sources */,
 				0A90FEC3253EE0AD0055B7E4 /* ConstraintView.swift in Sources */,
 				0A90FECE253EE0AE0055B7E4 /* ConstraintItem.swift in Sources */,
 				0A90FEC5253EE0AD0055B7E4 /* ConstraintLayoutSupport.swift in Sources */,
+				0AB6BD4E2541826A00D23685 /* Student+CoreDataProperties.swift in Sources */,
 				0A90FEC9253EE0AE0055B7E4 /* ConstraintMakerEditable.swift in Sources */,
 				0A90FECF253EE0AE0055B7E4 /* Constraint.swift in Sources */,
 				0A90FED3253EE0AE0055B7E4 /* LayoutConstraint.swift in Sources */,
@@ -380,6 +399,7 @@
 				0AB6BD432541792900D23685 /* ObjectiveC_Hander.m in Sources */,
 				0A90FEBA253EE0AD0055B7E4 /* ConstraintInsets.swift in Sources */,
 				0A52BC5C25384A1800EADE0D /* ProductTableViewTwoCell.swift in Sources */,
+				0AB6BD4D2541826A00D23685 /* Student+CoreDataClass.swift in Sources */,
 				0A90FEC8253EE0AE0055B7E4 /* ConstraintOffsetTarget.swift in Sources */,
 				0A52BC5D25384A1800EADE0D /* ProductTableViewCell.swift in Sources */,
 				0A90FECA253EE0AE0055B7E4 /* ConstraintMaker.swift in Sources */,
@@ -614,6 +634,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0AB6BD442541816500D23685 /* Class.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0AB6BD452541816500D23685 /* Class.xcdatamodel */,
+			);
+			currentVersion = 0AB6BD452541816500D23685 /* Class.xcdatamodel */;
+			path = Class.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0AE7D2452315539100DEB0F8 /* Project object */;
 }
