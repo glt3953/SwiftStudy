@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,70 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let memorySize = getPhysicalMemorySize()
+        print("Total physical memory: \(memorySize / 1024 / 1024) MB")
+        
+        if let vmStats = getVMStatistics() {
+            print("Free memory: \(vmStats.freeMemory / 1024 / 1024) MB")
+            print("Used memory: \(vmStats.usedMemory / 1024 / 1024) MB")
+        }
+        
+        if let availableMemory = getAvailableMemory() {
+            print("Available memory: \(availableMemory / 1024 / 1024) MB")
+        }
+        
         return true
+    }
+    
+    func getAvailableMemory() -> UInt64? {
+        var vmStats = vm_statistics_data_t()
+        var count = mach_msg_type_number_t(MemoryLayout<vm_statistics_data_t>.size) / 4
+        var hostPort: mach_port_t = mach_host_self()
+
+        let result = withUnsafeMutablePointer(to: &vmStats) { vmStatsPtr in
+            vmStatsPtr.withMemoryRebound(to: integer_t.self, capacity: 1) { intPtr in
+                host_statistics(hostPort, HOST_VM_INFO, intPtr, &count)
+            }
+        }
+
+        if result == KERN_SUCCESS {
+            let pageSize = vm_kernel_page_size
+            let freeMemory = UInt64(vmStats.free_count) * UInt64(pageSize)
+            let inactiveMemory = UInt64(vmStats.inactive_count) * UInt64(pageSize)
+            return freeMemory + inactiveMemory
+        } else {
+            print("Failed to get VM statistics with error code \(result)")
+            return nil
+        }
+    }
+    
+    func getVMStatistics() -> (freeMemory: UInt64, usedMemory: UInt64)? {
+        var vmStats = vm_statistics_data_t()
+        var count = mach_msg_type_number_t(MemoryLayout<vm_statistics_data_t>.size) / 4
+        var hostPort: mach_port_t = mach_host_self()
+
+        let result = withUnsafeMutablePointer(to: &vmStats) { vmStatsPtr in
+            vmStatsPtr.withMemoryRebound(to: integer_t.self, capacity: 1) { intPtr in
+                // 用于获取主机的统计信息。通过指定 `HOST_VM_INFO`，可以获取虚拟内存相关的数据。
+                host_statistics(hostPort, HOST_VM_INFO, intPtr, &count)
+            }
+        }
+
+        if result == KERN_SUCCESS {
+            let pageSize = vm_kernel_page_size // 系统的页面大小（通常为 4096 字节）。
+            let freeMemory = UInt64(vmStats.free_count) * UInt64(pageSize)
+            let usedMemory = (UInt64(vmStats.active_count) + UInt64(vmStats.inactive_count) + UInt64(vmStats.wire_count)) * UInt64(pageSize)
+            return (freeMemory, usedMemory)
+        } else {
+            print("Failed to get VM statistics with error code \(result)")
+            return nil
+        }
+    }
+    
+    func getPhysicalMemorySize() -> UInt64 {
+        let physicalMemory = ProcessInfo.processInfo.physicalMemory
+        return physicalMemory
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

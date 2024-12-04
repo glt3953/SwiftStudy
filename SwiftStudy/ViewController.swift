@@ -20,7 +20,52 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
         super.loadView()
     }
     
+    func mmapExample() {
+        // 文件路径
+        let homeDicPath = NSHomeDirectory()
+        let filePath = homeDicPath + "/file.txt"
+
+        // 打开文件
+        let fd = open(filePath, O_RDONLY)
+        if fd == -1 {
+            print("Failed to open file")
+            return
+        }
+
+        // 获取文件大小
+        let fileSize = lseek(fd, 0, SEEK_END)
+        if fileSize == -1 {
+            print("Failed to get file size")
+            close(fd)
+            return
+        }
+
+        // 将文件映射到内存
+        let mappedFile = mmap(nil, Int(fileSize), PROT_READ, MAP_PRIVATE, fd, 0)
+        if mappedFile == MAP_FAILED {
+            print("Failed to map file")
+            close(fd)
+            return
+        }
+
+        // 关闭文件描述符
+        close(fd)
+
+        // 读取文件内容
+        let data = Data(bytes: mappedFile!, count: Int(fileSize))
+        if let fileContent = String(data: data, encoding: .utf8) {
+            print("File content: \(fileContent)")
+        }
+
+        // 解除文件映射
+        if munmap(mappedFile, Int(fileSize)) == -1 {
+            print("Failed to unmap file")
+        }
+    }
+    
     override func viewDidLoad() {
+        mmapExample()
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.barTintColor = UIColor.white

@@ -46,13 +46,11 @@
 		0A90FECF253EE0AE0055B7E4 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90FEAA253EE0AD0055B7E4 /* Constraint.swift */; };
 		0A90FED0253EE0AE0055B7E4 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90FEAB253EE0AD0055B7E4 /* Debugging.swift */; };
 		0A90FED1253EE0AE0055B7E4 /* ConstraintRelatableTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90FEAC253EE0AD0055B7E4 /* ConstraintRelatableTarget.swift */; };
-		0A90FED2253EE0AE0055B7E4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90FEAD253EE0AD0055B7E4 /* Info.plist */; };
 		0A90FED3253EE0AE0055B7E4 /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90FEAE253EE0AD0055B7E4 /* LayoutConstraint.swift */; };
 		0A90FED4253EE0AE0055B7E4 /* ConstraintLayoutGuide+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90FEAF253EE0AD0055B7E4 /* ConstraintLayoutGuide+Extensions.swift */; };
 		0A90FED5253EE0AE0055B7E4 /* ConstraintDirectionalInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90FEB0253EE0AD0055B7E4 /* ConstraintDirectionalInsets.swift */; };
 		0A90FED6253EE0AE0055B7E4 /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90FEB1253EE0AD0055B7E4 /* ConstraintLayoutSupportDSL.swift */; };
 		0A90FED7253EE0AE0055B7E4 /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90FEB2253EE0AD0055B7E4 /* ConstraintMakerRelatable.swift */; };
-		0A90FED925402D130055B7E4 /* NewPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90FED825402D130055B7E4 /* NewPlist.plist */; };
 		0AA722B52539A36A00F8899F /* animation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0AA722B42539A36A00F8899F /* animation.gif */; };
 		0AB6BD3C2541276700D23685 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6BD3B2541276700D23685 /* People.swift */; };
 		0AB6BD3F2541787900D23685 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB6BD3E2541787900D23685 /* libsqlite3.0.tbd */; };
@@ -74,6 +72,9 @@
 		0AE7D2562315539100DEB0F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE7D2542315539100DEB0F8 /* Main.storyboard */; };
 		0AE7D2582315539300DEB0F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AE7D2572315539300DEB0F8 /* Assets.xcassets */; };
 		0AE7D25B2315539300DEB0F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE7D2592315539300DEB0F8 /* LaunchScreen.storyboard */; };
+		5A8E313A2CFEACC800D2DB24 /* ThumbnailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8E31392CFEACC800D2DB24 /* ThumbnailImageView.swift */; };
+		5A8E313C2CFEB0EE00D2DB24 /* AsyncDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8E313B2CFEB0EE00D2DB24 /* AsyncDrawingView.swift */; };
+		5A8E313E2CFEB13300D2DB24 /* AsyncDrawingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8E313D2CFEB13300D2DB24 /* AsyncDrawingLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,7 +120,6 @@
 		0A90FEAA253EE0AD0055B7E4 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
 		0A90FEAB253EE0AD0055B7E4 /* Debugging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debugging.swift; sourceTree = "<group>"; };
 		0A90FEAC253EE0AD0055B7E4 /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
-		0A90FEAD253EE0AD0055B7E4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A90FEAE253EE0AD0055B7E4 /* LayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraint.swift; sourceTree = "<group>"; };
 		0A90FEAF253EE0AD0055B7E4 /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
 		0A90FEB0253EE0AD0055B7E4 /* ConstraintDirectionalInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDirectionalInsets.swift; sourceTree = "<group>"; };
@@ -151,6 +151,9 @@
 		0AE7D2572315539300DEB0F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AE7D25A2315539300DEB0F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AE7D25C2315539300DEB0F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A8E31392CFEACC800D2DB24 /* ThumbnailImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailImageView.swift; sourceTree = "<group>"; };
+		5A8E313B2CFEB0EE00D2DB24 /* AsyncDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncDrawingView.swift; sourceTree = "<group>"; };
+		5A8E313D2CFEB13300D2DB24 /* AsyncDrawingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncDrawingLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,7 +223,6 @@
 				0A90FEAA253EE0AD0055B7E4 /* Constraint.swift */,
 				0A90FEAB253EE0AD0055B7E4 /* Debugging.swift */,
 				0A90FEAC253EE0AD0055B7E4 /* ConstraintRelatableTarget.swift */,
-				0A90FEAD253EE0AD0055B7E4 /* Info.plist */,
 				0A90FEAE253EE0AD0055B7E4 /* LayoutConstraint.swift */,
 				0A90FEAF253EE0AD0055B7E4 /* ConstraintLayoutGuide+Extensions.swift */,
 				0A90FEB0253EE0AD0055B7E4 /* ConstraintDirectionalInsets.swift */,
@@ -289,6 +291,9 @@
 				0ABC232F2531D3C4003B7357 /* ViewControllerSeven.swift */,
 				0ABC232D2531D3B5003B7357 /* ViewControllerSix.swift */,
 				0ABC23272531B6D2003B7357 /* ViewControllerThree.swift */,
+				5A8E31392CFEACC800D2DB24 /* ThumbnailImageView.swift */,
+				5A8E313B2CFEB0EE00D2DB24 /* AsyncDrawingView.swift */,
+				5A8E313D2CFEB13300D2DB24 /* AsyncDrawingLayer.swift */,
 			);
 			path = SwiftStudy;
 			sourceTree = "<group>";
@@ -354,11 +359,9 @@
 			files = (
 				0AE7D25B2315539300DEB0F8 /* LaunchScreen.storyboard in Resources */,
 				0A52BC5E25384A1800EADE0D /* ProductTableViewCell.xib in Resources */,
-				0A90FED2253EE0AE0055B7E4 /* Info.plist in Resources */,
 				0AA722B52539A36A00F8899F /* animation.gif in Resources */,
 				0AE7D2582315539300DEB0F8 /* Assets.xcassets in Resources */,
 				0AE7D2562315539100DEB0F8 /* Main.storyboard in Resources */,
-				0A90FED925402D130055B7E4 /* NewPlist.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +393,7 @@
 				0A90FEB9253EE0AD0055B7E4 /* ConstraintPriorityTarget.swift in Sources */,
 				0A90FEC3253EE0AD0055B7E4 /* ConstraintView.swift in Sources */,
 				0A90FECE253EE0AE0055B7E4 /* ConstraintItem.swift in Sources */,
+				5A8E313A2CFEACC800D2DB24 /* ThumbnailImageView.swift in Sources */,
 				0A90FEC5253EE0AD0055B7E4 /* ConstraintLayoutSupport.swift in Sources */,
 				0AB6BD4E2541826A00D23685 /* Student+CoreDataProperties.swift in Sources */,
 				0A90FEC9253EE0AE0055B7E4 /* ConstraintMakerEditable.swift in Sources */,
@@ -406,6 +410,7 @@
 				0A90FECD253EE0AE0055B7E4 /* ConstraintView+Extensions.swift in Sources */,
 				0A90FEC1253EE0AD0055B7E4 /* ConstraintConfig.swift in Sources */,
 				0A90FEC0253EE0AD0055B7E4 /* ConstraintDirectionalInsetTarget.swift in Sources */,
+				5A8E313C2CFEB0EE00D2DB24 /* AsyncDrawingView.swift in Sources */,
 				0A90FECB253EE0AE0055B7E4 /* ConstraintRelation.swift in Sources */,
 				0A90FEBF253EE0AD0055B7E4 /* ConstraintInsetTarget.swift in Sources */,
 				0A90FEB5253EE0AD0055B7E4 /* ConstraintDescription.swift in Sources */,
@@ -416,6 +421,7 @@
 				0A2AB89D245583AD0022133A /* SwiftClass.swift in Sources */,
 				0ABC232C2531D3A4003B7357 /* ViewControllerFive.swift in Sources */,
 				0ABC232E2531D3B5003B7357 /* ViewControllerSix.swift in Sources */,
+				5A8E313E2CFEB13300D2DB24 /* AsyncDrawingLayer.swift in Sources */,
 				0A90FED4253EE0AE0055B7E4 /* ConstraintLayoutGuide+Extensions.swift in Sources */,
 				0A90FEBE253EE0AD0055B7E4 /* ConstraintPriority.swift in Sources */,
 				0A90FED1253EE0AE0055B7E4 /* ConstraintRelatableTarget.swift in Sources */,
@@ -577,7 +583,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CCQP63X7K4;
 				INFOPLIST_FILE = SwiftStudy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -599,7 +605,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CCQP63X7K4;
 				INFOPLIST_FILE = SwiftStudy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
