@@ -64,9 +64,19 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
     }
     
     override func viewDidLoad() {
-        mmapExample()
+        let showPopupButton = UIButton(type: .system)
+        showPopupButton.setTitle("Show Popup", for: .normal)
+        showPopupButton.translatesAutoresizingMaskIntoConstraints = false
+        showPopupButton.addTarget(self, action: #selector(showPopup), for: .touchUpInside)
         
-        super.viewDidLoad()
+        view.addSubview(showPopupButton)
+        NSLayoutConstraint.activate([
+            showPopupButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            showPopupButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        return
+        
+        mmapExample()
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         let barItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClick))
@@ -302,6 +312,13 @@ class ViewController: UIViewController, ViewControllerTwoProtocol {
         layer.add(springAni, forKey: "")
 //        let label = UILabel(frame: CGRect(x: 20, y: 200, width: 280, height: 30))
 //        self.view.addSubview(label)
+    }
+    
+    @objc func showPopup() {
+        let popupVC = PopupViewController()
+        popupVC.modalPresentationStyle = .overCurrentContext
+        popupVC.modalTransitionStyle = .crossDissolve
+        present(popupVC, animated: true, completion: nil)
     }
     
     func playGIFOnWebView(name:String, webView:UIWebView) {

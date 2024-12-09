@@ -75,6 +75,7 @@
 		5A8E313A2CFEACC800D2DB24 /* ThumbnailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8E31392CFEACC800D2DB24 /* ThumbnailImageView.swift */; };
 		5A8E313C2CFEB0EE00D2DB24 /* AsyncDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8E313B2CFEB0EE00D2DB24 /* AsyncDrawingView.swift */; };
 		5A8E313E2CFEB13300D2DB24 /* AsyncDrawingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8E313D2CFEB13300D2DB24 /* AsyncDrawingLayer.swift */; };
+		5AAD588D2D06F1F900DF005E /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAD588C2D06F1F900DF005E /* PopupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -154,6 +155,7 @@
 		5A8E31392CFEACC800D2DB24 /* ThumbnailImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailImageView.swift; sourceTree = "<group>"; };
 		5A8E313B2CFEB0EE00D2DB24 /* AsyncDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncDrawingView.swift; sourceTree = "<group>"; };
 		5A8E313D2CFEB13300D2DB24 /* AsyncDrawingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncDrawingLayer.swift; sourceTree = "<group>"; };
+		5AAD588C2D06F1F900DF005E /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +296,7 @@
 				5A8E31392CFEACC800D2DB24 /* ThumbnailImageView.swift */,
 				5A8E313B2CFEB0EE00D2DB24 /* AsyncDrawingView.swift */,
 				5A8E313D2CFEB13300D2DB24 /* AsyncDrawingLayer.swift */,
+				5AAD588C2D06F1F900DF005E /* PopupViewController.swift */,
 			);
 			path = SwiftStudy;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				5A8E313C2CFEB0EE00D2DB24 /* AsyncDrawingView.swift in Sources */,
 				0A90FECB253EE0AE0055B7E4 /* ConstraintRelation.swift in Sources */,
 				0A90FEBF253EE0AD0055B7E4 /* ConstraintInsetTarget.swift in Sources */,
+				5AAD588D2D06F1F900DF005E /* PopupViewController.swift in Sources */,
 				0A90FEB5253EE0AD0055B7E4 /* ConstraintDescription.swift in Sources */,
 				0A90FEC4253EE0AD0055B7E4 /* ConstraintLayoutGuide.swift in Sources */,
 				0A90FED6253EE0AE0055B7E4 /* ConstraintLayoutSupportDSL.swift in Sources */,
@@ -581,7 +585,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CCQP63X7K4;
+				DEVELOPMENT_TEAM = X2L5JNBS3H;
 				INFOPLIST_FILE = SwiftStudy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -603,7 +607,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CCQP63X7K4;
+				DEVELOPMENT_TEAM = X2L5JNBS3H;
 				INFOPLIST_FILE = SwiftStudy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
